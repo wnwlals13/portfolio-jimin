@@ -1,6 +1,7 @@
 {
   "name": "portfolio-jimin",
   "scripts": {
-    "start": "index.html"
+    "start": "index.html",
+    "build" :"index.html"
   }
 }

@@ -1,5 +1,3 @@
-import anime from "./node_modules/animejs/lib/anime.es.js";
-
 let scrollTop = 0;
 let offset = 0;
 let height = 0;
