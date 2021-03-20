@@ -66,6 +66,7 @@ function fillModal(e) {
   modal_close.addEventListener("click", (e) => {
     modalWrapper.classList.remove("show");
   });
+
   let modal_img = document.createElement("img");
   modal_img.style.width = "100%";
   modal_img.style.height = "50%";
