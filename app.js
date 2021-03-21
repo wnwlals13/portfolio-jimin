@@ -2,7 +2,7 @@ let scrollTop = 0;
 let offset = 0;
 let height = 0;
 let position = 0;
-const skillSet = [60, 50, 50, 40, 50, 50, 50];
+const skillSet = [50, 50, 40, 30, 50, 50, 40];
 const body = document.querySelector("body");
 const mainLogo = document.querySelector(".mainLogo");
 const square = document.querySelector("body .square");
@@ -80,9 +80,7 @@ function fillModal(e) {
   if (target == "Ddoda project") {
     modal_title.innerText = target;
     modal_title.style.paddingBottom = "10px";
-
     modal_img.src = "./image/ddoda_main.png";
-
     modal_description.innerText = `
       프로젝트 기간 : 2020년 11월 10일 ~ 2020년 12월 29일
       기술 스택 : Java, Spring framework, JavaScript, jQuery
@@ -98,9 +96,7 @@ function fillModal(e) {
   } else if (target == "Blog project") {
     modal_title.innerText = target;
     modal_title.style.paddingBottom = "10px";
-
     modal_img.src = "./image/blog_main.png";
-
     modal_description.innerText = `
     프로젝트 기간 : 2021년 02월 20일 ~ 2020년 03월
     기술 스택 : JavaScript, React hooks, firebase
@@ -108,7 +104,6 @@ function fillModal(e) {
     - React hooks 이용해 블로그 CRUD 기능 구현
     - firebase auth를 이용한 로그인/아웃
     - realtime database를 이용해 디비 연동
-    
   `;
     modal_detail.addEventListener("click", (e) => {
       window.open("https://github.com/wnwlals13/myBlogApp");
