@@ -226,30 +226,24 @@ h2 {
   align-items: center;
   background: linear-gradient(
     39deg,
-    rgba(149, 236, 175, 1) 0%,
-    rgba(143, 231, 219, 1) 100%
+    rgba(224, 223, 242, 1) 0%,
+    rgba(143, 216, 231, 1) 100%
   );
   border-radius: 10px;
   overflow: hidden;
   box-shadow: -2px 19px 44px 0px rgba(0, 0, 0, 0.06);
   transition: all 1.5s cubic-bezier(0.83, 0.01, 0.09, 0.99);
   cursor: pointer;
+  background-repeat: no-repeat;
+  background-size: 100% 80%;
+  margin-left: 30px;
 }
 .project p {
   padding-bottom: 20px;
   color: rgba(0, 0, 0, 0.8);
 }
 .project:first-of-type {
-  margin-right: 30px;
   background-image: url("./image/ddoda_main.png");
-  background-repeat: no-repeat;
-  background-size: 100% 80%;
-}
-.project:last-of-type {
-  margin-left: 30px;
-  background-image: url("./image/blog_main.png");
-  background-repeat: no-repeat;
-  background-size: 100% 80%;
 }
 
 /**/
