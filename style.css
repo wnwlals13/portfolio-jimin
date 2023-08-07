@@ -24,11 +24,17 @@ h2 {
   display: flex;
   justify-content: space-between;
   z-index: 10;
+  padding: 0 170px 0 170px;
+  align-items: center;
+  background-color: rgba( 255, 255, 255, 0.5 );
 }
 .mainLogo {
-  padding: 20px 40px;
-  vertical-align: center;
-  font-family: "Chango", cursive;
+  background-image: url("./image/logo.png");
+  background-size: cover;
+  width : 50px;
+  height : 50px;
+  background-position: center center;
+  background-size: 100% 100%;
 }
 .context {
   list-style-type: none;
@@ -55,16 +61,14 @@ h2 {
 .scrollWrapper {
   height: 100px;
   width: 5px;
-  /* border-radius: 50%; */
   background-color: #fff;
 }
 
 .scrollbar {
-  /* height: 50px; */
-  background: rgba(143, 216, 231, 0.7);
+  background: rgba(31, 162, 255, 1);
 }
 .scroll {
-  color: lightslategray;
+  color: rgb(142, 142, 142);
   transform: rotate(-90deg);
   letter-spacing: 3px;
 }
@@ -91,22 +95,22 @@ h2 {
 }
 
 .landingPage {
-  background-color: aliceblue;
   width: 100vw;
   height: 100vh;
-  padding: 330px 100px;
+  padding: 220px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
+  align-items: center;
 }
 .landing__about {
-  width: 300px;
+  width: 360px;
   letter-spacing: 3px;
   z-index: 10;
 }
 .landing__about h2 {
-  font-size: 40px;
+  font-size: 50px;
   font-family: "Raleway", sans-serif;
-  padding-bottom: 0;
+  padding-bottom: 20px;
 }
 .landing__shake {
   font-size: 30px;
@@ -115,35 +119,20 @@ h2 {
   transform: rotate(-10deg);
   transform-origin: 50%;
 }
-.square {
-  position: absolute;
-  top: 140px;
-  right: 0;
-  width: 450px;
-  height: 450px;
-  transform: rotate(45deg);
-  background: rgb(224, 223, 242);
-  background: linear-gradient(
-    39deg,
-    rgba(224, 223, 242, 1) 0%,
-    rgba(177, 177, 255, 1) 47%,
-    rgba(143, 216, 231, 1) 100%
-  );
-  border-radius: 20%;
-  transform: rotate(-50deg);
-  right: 100px;
-  animation: rotate 1s cubic-bezier(0.42, 0, 0.53, 0.99);
+.image-box {
+  background-image: url("./image/diagram_main.png");
+  background-size: cover;
+  width : 500px;
+  height : 500px;
+  animation: upDown 1s infinite alternate;
 }
-@keyframes rotate {
+
+@keyframes upDown {
   0% {
-    transform: rotate(0);
-    right: -100px;
-    opacity: 0;
+    transform: translate(0,0);
   }
   100% {
-    transform: rotate(-50deg);
-    right: 100px;
-    opacity: 1;
+    transform: translate(0,20px);
   }
 }
 @keyframes shake {
@@ -157,12 +146,64 @@ h2 {
     transform: rotate(-10deg);
   }
 }
+/* common */
+.skillPage, .experiencePage, .workPage  {
+  height: 100vh;
+  padding: 220px;
+}
+
+/* experience */
+.timeline {
+  margin: 0 200px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-left: 5px solid #1FA2FF;
+}
+.event {
+  position: relative;
+  list-style-type: none;
+
+  &:last-of-type { 
+      padding-bottom: 0;
+      margin-bottom: 0; 
+      border: none;      
+    }
+
+  &:before, &:after {
+      position: absolute;
+      display: block;
+      top: 0;
+    }
+  
+  &:before {
+    left : -200px;
+    content: attr(data-date);
+    color: #747474;
+  }
+
+  &:after {
+      box-shadow: 0 0 0 4px #1FA2FF; 
+      background: #fff;  
+      left : -47px;
+      border-radius: 50%;  
+      height: 11px;
+      width: 11px;
+      content: "";
+      top: 5px;
+    }
+}
+.event h2 {
+  padding-bottom: 10px;
+  font-size: 30px;
+}
+.event p {
+  margin-bottom: 70px;
+  color: #747474;
+}
 
 /* skill */
-.skillPage {
-  height: 100vh;
-  padding: 100px;
-}
 .skillWrapper {
   display: flex;
   justify-content: flex-start;
@@ -193,27 +234,20 @@ h2 {
   color: #fff;
   width: 0;
   height: 30px;
+  border-radius: 10px;
   background: linear-gradient(
     39deg,
-    rgba(149, 236, 175, 1) 0%,
-    rgba(143, 231, 219, 1) 100%
+    rgba(18, 216, 250, 1) 0%,
+    rgba(166, 255, 203, 1) 100%
   );
   transition: all 1s ease-in-out;
 }
 
 /*portfolio*/
-.workPage {
-  background-color: #fff;
-  height: 100vh;
-  padding: 100px;
-}
-.projects {
+.workPage .projects {
   display: flex;
   justify-content: center;
   min-width: 600px;
-}
-
-@media screen and (max-width: "500px") {
 }
 
 .project {
@@ -224,19 +258,25 @@ h2 {
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  background: linear-gradient(
-    39deg,
-    rgba(224, 223, 242, 1) 0%,
-    rgba(143, 216, 231, 1) 100%
-  );
+  background: #fff;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: -2px 19px 44px 0px rgba(0, 0, 0, 0.06);
-  transition: all 1.5s cubic-bezier(0.83, 0.01, 0.09, 0.99);
   cursor: pointer;
   background-repeat: no-repeat;
   background-size: 100% 80%;
   margin-left: 30px;
+  transition-duration: .5s;
+
+  &:hover {
+    transform: translateY(-6px);
+    animation-name: "hover";
+    animation-duration: 1.5s;
+    animation-delay: 0.3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
 }
 .project p {
   padding-bottom: 20px;
@@ -244,15 +284,19 @@ h2 {
 }
 .project:first-of-type {
   background-image: url("./image/ddoda_main.png");
+  background-size: 100%;
+}
+.project:last-of-type {
+  background-image: url("./image/blog_main.png");
+  background-size: 100%;
 }
 
-/**/
+/*contact*/
 .contactPage {
-  background: rgb(149, 237, 149);
   background: linear-gradient(
     39deg,
-    rgba(149, 237, 149, 1) 0%,
-    rgba(110, 206, 219, 1) 100%
+    rgba(18, 216, 250, 1) 0%,
+    rgba(166, 255, 203, 1) 100%
   );
   height: 100vh;
   display: flex;
@@ -320,12 +364,50 @@ h2 {
 .linkTo img:hover {
   transform: scale(1.1);
 }
+.contact-content {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.contact-profile{
+  background-image: url("./image/profile.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+}
+.contact-content p {
+  width: 80%;
+  height: 100%;
+  align-self: flex-end;
+}
+.contact-icon {
+  margin-top: 20px;
+  padding-left: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  list-style-type: none;
+}
+.contact-icon li {
+  margin-right: 10px;
+  width: 30px;
+  height: 30px;
+}
+.contact-icon li i {
+  width: 100%;
+  height: 100%;
+}
+.contact-icon li a:link  {
+  color: #000;
+}
 
 /*modal*/
 .modalWrapper {
   position: absolute;
   background: rgba(0, 0, 0, 0.4);
-  /* height: 100vh; */
   width: 100vw;
   z-index: -1;
   opacity: 0;

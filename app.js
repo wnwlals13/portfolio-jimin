@@ -1,3 +1,4 @@
+/* Variables */
 let scrollTop = 0;
 let offset = 0;
 let height = 0;
@@ -14,6 +15,7 @@ const project = document.querySelectorAll(".project");
 const projects = document.querySelector(".projects");
 const landingPage = document.querySelector(".landingPage");
 const landingAbout = document.querySelector(".landing__about");
+const experiencePage = document.querySelector(".experiencePage");
 const skillPage = document.querySelector(".skillPage");
 const workPage = document.querySelector(".workPage");
 const contactPage = document.querySelector(".contactPage");
@@ -23,6 +25,7 @@ const linkTo = document.querySelector(".linkTo");
 const modalWrapper = document.querySelector(".modalWrapper");
 const modalInner = document.querySelector(".modalInner");
 
+/* Function */
 function skillbarHandle(data) {
   let i = 0;
   if (data >= 30 && data <= 65) {
@@ -98,13 +101,13 @@ function fillModal(e) {
     modal_title.style.paddingBottom = "10px";
     modal_img.src = "./image/blog_main.png";
     modal_description.innerText = `
-  프로젝트 기간 : 2021년 02월 20일 ~ 2020년 03월
-  기술 스택 : JavaScript, React hooks, firebase
-  <구현 기능>
-  - React hooks 이용해 블로그 CRUD 기능 구현
-  - firebase auth를 이용한 로그인/아웃
-  - realtime database를 이용해 디비 연동
-`;
+    프로젝트 기간 : 2021년 02월 20일 ~ 2021년 05월
+    기술 스택 : JavaScript, React hooks, firebase
+    <구현 기능>
+    - React hooks 이용해 블로그 CRUD 기능 구현
+    - firebase auth를 이용한 로그인/아웃
+    - realtime database를 이용해 디비 연동
+  `;
     modal_detail.addEventListener("click", (e) => {
       window.open("https://github.com/wnwlals13/myBlogApp");
     });
@@ -126,16 +129,16 @@ mainLogo.addEventListener("click", () => {
 });
 
 navbar.addEventListener("click", (e) => {
-  if (e.target.className == "main") {
+  const pageName = e.target.className;
+  if ( pageName == "main" ) {
     window.scrollTo({ top: landingPage.offsetTop, behavior: "smooth" });
-  }
-  if (e.target.className == "skill") {
-    window.scrollTo({ top: skillPage.offsetTop, behavior: "smooth" });
-  }
-  if (e.target.className == "works") {
+  } else if ( pageName == "experience" ){
+    window.scrollTo({ top: experiencePage.offsetTop, behavior: "smooth" });
+  } else if ( pageName == "works" ){
     window.scrollTo({ top: workPage.offsetTop, behavior: "smooth" });
-  }
-  if (e.target.className == "contact") {
+  } else if ( pageName == "skill" ){
+    window.scrollTo({ top: skillPage.offsetTop, behavior: "smooth" });
+  } else if ( pageName == "contact" ){
     window.scrollTo({ top: contactPage.offsetTop, behavior: "smooth" });
   }
 });
@@ -150,31 +153,17 @@ projects.addEventListener("click", (e) => {
   modalWrapper.style.top = "0";
   modalWrapper.classList.add("show");
   modalInner.classList.add("show");
-  console.log(e.target.innerText);
 });
-// projects.addEventListener("click", (e) => {
-//   if (e.target.className == "project") {
-//     window.open(
-//       "https://drive.google.com/file/d/1o4mWh5w93CdQWIDWE16SkL3M0TtmUwJC/view?usp=sharing"
-//     );
-//   } else if (e.target.className == "project second") {
-//     window.open(
-//       "https://drive.google.com/file/d/1ApR_EH8FkSMz0ubsyrflyK3XrYeDb4sP/view?usp=sharing"
-//     );
-//   }
-// });
 
 modalWrapper.addEventListener("click", (e) => {
   offModal(e);
 });
 
 linkTo.addEventListener("click", (e) => {
-  if (e.target.tagName == "I") {
+  console.log(e.target.className);
+  if (e.target.className == "fab fa-github") {
     window.open("https://github.com/wnwlals13");
-  } else {
-    window.open("https://neighbor.tistory.com/");
-  }
-  console.log();
+  } 
 });
 
 window.addEventListener("scroll", (e) => {
