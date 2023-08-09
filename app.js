@@ -1,4 +1,4 @@
-/* Variables */
+/* -------------------------- Variables -------------------------- */
 let scrollTop = 0;
 let offset = 0;
 let height = 0;
@@ -25,7 +25,7 @@ const linkTo = document.querySelector(".linkTo");
 const modalWrapper = document.querySelector(".modalWrapper");
 const modalInner = document.querySelector(".modalInner");
 
-/* Function */
+/* -------------------------- Function -------------------------- */
 function skillbarHandle(data) {
   let i = 0;
   if (data >= 30 && data <= 65) {
@@ -124,6 +124,8 @@ function offModal(e) {
     modalWrapper.classList.remove("show");
   }
 }
+
+/* -------------------------- Event Listener -------------------------- */
 mainLogo.addEventListener("click", () => {
   location.href = location.href;
 });

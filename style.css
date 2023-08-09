@@ -1,7 +1,9 @@
+/* -------------------------- Fonts -------------------------- */
 @import url("https://fonts.googleapis.com/css2?family=Chango&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chango&family=Noto+Sans&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chango&family=Montserrat:ital,wght@0,200;0,300;0,800;0,900;1,200&family=Noto+Sans&family=Raleway:wght@800&display=swap");
 
+/* -------------------------- Common -------------------------- */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -18,16 +20,6 @@ h2 {
   font-family: "Raleway", sans-serif;
   padding-bottom: 50px;
 }
-.navbar {
-  position: fixed;
-  width: 100vw;
-  display: flex;
-  justify-content: space-between;
-  z-index: 10;
-  padding: 0 170px 0 170px;
-  align-items: center;
-  background-color: rgba( 255, 255, 255, 0.5 );
-}
 .mainLogo {
   background-image: url("./image/logo.png");
   background-size: cover;
@@ -43,10 +35,29 @@ h2 {
   justify-content: flex-end;
   cursor: pointer;
 }
+
+.landingPage, .skillPage, .experiencePage, .workPage  {
+  width: 100vw;
+  height: 100vh;
+  padding: 220px;
+}
+
+/* -------------------------- Nav Section -------------------------- */
+.navbar {
+  position: fixed;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  z-index: 10;
+  padding: 0 170px 0 170px;
+  align-items: center;
+  background-color: rgba( 255, 255, 255, 0.5 );
+}
 .navbar li {
   padding: 0 10px;
 }
 
+/* -------------------------- Scroll Section -------------------------- */
 .scrollSection {
   position: fixed;
   top: 44%;
@@ -94,10 +105,8 @@ h2 {
   opacity: 1;
 }
 
+/* -------------------------- Main Section -------------------------- */
 .landingPage {
-  width: 100vw;
-  height: 100vh;
-  padding: 220px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -146,13 +155,8 @@ h2 {
     transform: rotate(-10deg);
   }
 }
-/* common */
-.skillPage, .experiencePage, .workPage  {
-  height: 100vh;
-  padding: 220px;
-}
 
-/* experience */
+/* -------------------------- Experience Section -------------------------- */
 .timeline {
   margin: 0 200px;
   height: 100%;
@@ -203,7 +207,7 @@ h2 {
   color: #747474;
 }
 
-/* skill */
+/* -------------------------- Skill Section -------------------------- */
 .skillWrapper {
   display: flex;
   justify-content: flex-start;
@@ -243,7 +247,7 @@ h2 {
   transition: all 1s ease-in-out;
 }
 
-/*portfolio*/
+/* -------------------------- Projects Section -------------------------- */
 .workPage .projects {
   display: flex;
   justify-content: center;
@@ -291,7 +295,7 @@ h2 {
   background-size: 100%;
 }
 
-/*contact*/
+/* -------------------------- Contact Section -------------------------- */
 .contactPage {
   background: linear-gradient(
     39deg,
@@ -404,7 +408,7 @@ h2 {
   color: #000;
 }
 
-/*modal*/
+/* -------------------------- Modal Section -------------------------- */
 .modalWrapper {
   position: absolute;
   background: rgba(0, 0, 0, 0.4);
