@@ -87,7 +87,10 @@ function fillModal(e) {
     modal_description.innerText = `
     프로젝트 기간 : 2020년 11월 10일 ~ 2020년 12월 29일
     기술 스택 : Java, Spring framework, JavaScript, jQuery
-    <구현 기능>
+    프로젝트 인원 : 4명 
+    기여도 : 30%
+
+    [ 구현 기능 ]
     - JavaScript, JQuery, Bootstrap을 이용한 메인 웹 frontend 구현
     - 캘린더 API를 활용한 다이어리 CRUD 기능
     - 카카오 지도 API 활용한 소모임 장소 정보 제공
@@ -103,10 +106,13 @@ function fillModal(e) {
     modal_description.innerText = `
     프로젝트 기간 : 2021년 02월 20일 ~ 2021년 05월
     기술 스택 : JavaScript, React hooks, firebase
-    <구현 기능>
+    프로젝트 인원 : 1명 
+    기여도 : 100%
+
+    [ 구현 기능 ]
     - React hooks 이용해 블로그 CRUD 기능 구현
     - firebase auth를 이용한 로그인/아웃
-    - realtime database를 이용해 디비 연동
+    - realtime database를 이용해 DB 연동
   `;
     modal_detail.addEventListener("click", (e) => {
       window.open("https://github.com/wnwlals13/myBlogApp");
