@@ -3,7 +3,7 @@ let scrollTop = 0;
 let offset = 0;
 let height = 0;
 let position = 0;
-const skillSet = [50, 50, 50, 40, 35, 40, 40];
+const skillSet = [70, 70, 70, 50, 55, 40, 40];
 const body = document.querySelector("body");
 const mainLogo = document.querySelector(".mainLogo");
 const square = document.querySelector("body .square");
@@ -77,9 +77,9 @@ function fillModal(e) {
   modal_description.className = "modal_desc";
   modal_detail.className = "modal_detail";
   modal_detail.innerHTML = `
-<i class="fab fa-github"></i>
-<p> source code </p>
-`;
+  <i class="fab fa-github"></i>
+  <p> source code </p>
+  `;
   if (target == "Ddoda project") {
     modal_title.innerText = target;
     modal_title.style.paddingBottom = "10px";
@@ -99,12 +99,30 @@ function fillModal(e) {
     modal_detail.addEventListener("click", (e) => {
       window.open("https://github.com/JJINDdoda/JJIN_DDODA_FINAL");
     });
+  } else if (target == "Portfolio project") {
+    modal_title.innerText = target;
+    modal_title.style.paddingBottom = "10px";
+    modal_img.src = "./image/portfolio.png";
+    modal_description.innerText = `
+    프로젝트 기간 : 2021년 01월 ~ 2021년 02월
+    기술 스택 : HTML, CSS, JavaScript
+    프로젝트 인원 : 1명 
+    기여도 : 100%
+
+    [ 구현 기능 ]
+    - CSS와 Vanilla JS만 사용하여 인터랙션 구현
+    - netlify를 사용하여 개인 포트폴리오 배포
+  `;
+    modal_detail.addEventListener("click", (e) => {
+      window.open("https://github.com/wnwlals13/portfolio-jimin");
+    });
   } else if (target == "Blog project") {
     modal_title.innerText = target;
     modal_title.style.paddingBottom = "10px";
     modal_img.src = "./image/blog_main.png";
     modal_description.innerText = `
     프로젝트 기간 : 2021년 02월 20일 ~ 2021년 05월
+    리뉴얼 기간 : 2023년 03년 25일 ~ 진행중
     기술 스택 : JavaScript, React hooks, firebase
     프로젝트 인원 : 1명 
     기여도 : 100%
@@ -130,6 +148,25 @@ function offModal(e) {
     modalWrapper.classList.remove("show");
   }
 }
+
+// 텍스트 애니메이션
+const h2 = document.querySelector('.blinking_txt');
+const cursor = document.querySelector('.cursor');
+const shake = document.querySelector('.landing__shake');
+
+function typing (_, counter = 0) {
+  const txt = `I'm Jimin Joo. \n 제 포트폴리오에 오신 것을 환영합니다.🖐`;
+
+  setInterval(() => {
+    if(txt.length === counter) {
+      cursor.classList.add('blink_animate');
+      return;
+    }
+    h2.textContent += txt[counter];
+    counter++;
+  },80);
+}
+window.addEventListener('load', typing);
 
 /* -------------------------- Event Listener -------------------------- */
 mainLogo.addEventListener("click", () => {

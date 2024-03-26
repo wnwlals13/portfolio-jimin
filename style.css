@@ -16,10 +16,27 @@ html {
   overflow-x: hidden;
 }
 h2 {
-  font-size: 40px;
+  /* font-size: 40px; */
   font-family: "Raleway", sans-serif;
-  padding-bottom: 50px;
+  padding-bottom: 40px;
 }
+
+.main {
+  display : flex;
+  flex-direction : column;
+}
+
+.landingPage, .skillPage, .experiencePage, .workPage  {
+  width: 100%;
+  height: 100vh;
+  padding : 0 25px;
+}
+.skillPage, .experiencePage, .workPage  {
+  padding-top : 70px;
+  margin-bottom : 50px;
+}
+
+/* -------------------------- Nav Section -------------------------- */
 .mainLogo {
   background-image: url("./image/logo.png");
   background-size: cover;
@@ -30,26 +47,19 @@ h2 {
 }
 .context {
   list-style-type: none;
-  padding: 20px 40px;
+  /* padding: 20px 40px; */
   display: flex;
   justify-content: flex-end;
   cursor: pointer;
 }
-
-.landingPage, .skillPage, .experiencePage, .workPage  {
-  width: 100vw;
-  height: 100vh;
-  padding: 220px;
-}
-
-/* -------------------------- Nav Section -------------------------- */
 .navbar {
   position: fixed;
   width: 100vw;
   display: flex;
   justify-content: space-between;
   z-index: 10;
-  padding: 0 170px 0 170px;
+  padding: 0 20px;
+  /* margin : 0 20px; */
   align-items: center;
   background-color: rgba( 255, 255, 255, 0.5 );
 }
@@ -106,34 +116,59 @@ h2 {
 }
 
 /* -------------------------- Main Section -------------------------- */
+//typing animation
+.container {
+  position : absolute;
+  /* width: 100%; */
+  text-align : center;
+}
+.container .blinking_txt {
+  overflow : hidden;
+  display : inline-block;
+  padding : 0;
+}
+.container .cursor {
+  position : absolute;
+  transform : translate(-50% -50%);
+  font-size : 1.4rem;
+  fonr-weight : 700;
+}
+@keyframes blink-effect {
+  50% {opacity : 0;}
+}
+.blink_animate {
+  animation: blink-effect 1s step-end infinite;
+}
+
 .landingPage {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  width : 100%;
 }
 .landing__about {
-  width: 360px;
+  /* width: 360px; */
   letter-spacing: 3px;
   z-index: 10;
 }
 .landing__about h2 {
-  font-size: 50px;
+  /* font-size: 10x; */
   font-family: "Raleway", sans-serif;
-  padding-bottom: 20px;
+  /* padding-bottom: 20px; */
 }
 .landing__shake {
-  font-size: 30px;
-  display: inline-block;
-  animation: shake 1s ease-in-out infinite;
-  transform: rotate(-10deg);
-  transform-origin: 50%;
+  /* font-size: 30px; */
+  /* display: inline-block; */
+  /* animation: shake 1s ease-in-out infinite; */
+  /* transform: rotate(-10deg); */
+  /* transform-origin: 50%; */
 }
 .image-box {
-  background-image: url("./image/diagram_main.png");
-  background-size: cover;
-  width : 500px;
-  height : 500px;
-  animation: upDown 1s infinite alternate;
+  /* background-image: url("./image/diagram_main.png"); */
+  /* background-size: cover; */
+  /* width : 500px; */
+  /* height : 500px; */
+  /* animation: upDown 1s infinite alternate; */
 }
 
 @keyframes upDown {
@@ -158,7 +193,7 @@ h2 {
 
 /* -------------------------- Experience Section -------------------------- */
 .timeline {
-  margin: 0 200px;
+  margin: 0 120px 0 180px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -168,6 +203,7 @@ h2 {
 .event {
   position: relative;
   list-style-type: none;
+  width : 100%;
 
   &:last-of-type { 
       padding-bottom: 0;
@@ -200,10 +236,10 @@ h2 {
 }
 .event h2 {
   padding-bottom: 10px;
-  font-size: 30px;
+  font-size: 20px;
 }
 .event p {
-  margin-bottom: 70px;
+  margin-bottom: 40px;
   color: #747474;
 }
 
@@ -211,6 +247,9 @@ h2 {
 .skillWrapper {
   display: flex;
   justify-content: flex-start;
+  /* align-items : center; */
+  padding : 20px 70px;
+  height : 100%;
 }
 
 .skillWrapper .skill {
@@ -251,7 +290,9 @@ h2 {
 .workPage .projects {
   display: flex;
   justify-content: center;
+  align-items : center;
   min-width: 600px;
+  height : 60%;
 }
 
 .project {
@@ -416,6 +457,7 @@ h2 {
   z-index: -1;
   opacity: 0;
   transition: all 0.5s ease-in-out;
+  overflow-y : initial !important;
 }
 .modalInner {
   height: 90vh;
@@ -428,10 +470,13 @@ h2 {
   background: #fff;
   opacity: 0;
   transition: all 0.5s ease-in-out;
+  max-height : calc(100vh-100px);
+  overflow-y : auto;
 }
 
 .modal_desc {
   letter-spacing: 2px;
+  display : inline-block;
 }
 
 .modalWrapper.show {
