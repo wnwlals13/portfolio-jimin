@@ -2,23 +2,29 @@
 @import url("https://fonts.googleapis.com/css2?family=Chango&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chango&family=Noto+Sans&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chango&family=Montserrat:ital,wght@0,200;0,300;0,800;0,900;1,200&family=Noto+Sans&family=Raleway:wght@800&display=swap");
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
 
 /* -------------------------- Common -------------------------- */
 * {
   box-sizing: border-box;
   margin: 0;
-  font-family: "Noto Sans", sans-serif;
+  font-family: 'Pretendard-Regular';
 }
 body,
 html {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  overflow-x: overlay;
 }
 h2 {
   /* font-size: 40px; */
   font-family: "Raleway", sans-serif;
-  padding-bottom: 40px;
+  /* padding-bottom: 40px; */
 }
 
 .main {
@@ -200,6 +206,9 @@ h2 {
   justify-content: center;
   border-left: 5px solid #1FA2FF;
 }
+.timeline li h2 {
+  font-weight : 600;
+}
 .event {
   position: relative;
   list-style-type: none;
@@ -287,30 +296,39 @@ h2 {
 }
 
 /* -------------------------- Projects Section -------------------------- */
+.workPage {
+  display : flex;
+  flex-direction : column;
+  gap : 20px;
+}
 .workPage .projects {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns : repeat(2, 1fr);
+  justify-items: center;
   align-items : center;
-  min-width: 600px;
-  height : 60%;
+  gap : 20px;
+  /* 
+  min-width: 600px; */
+  height : 100%;
+  /* box-sizing : border-box; */
 }
 
 .project {
-  width: 0;
+  width: 100% !important;
   overflow: hidden;
-  height: 300px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
   background: #fff;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   overflow: hidden;
   box-shadow: -2px 19px 44px 0px rgba(0, 0, 0, 0.06);
   cursor: pointer;
   background-repeat: no-repeat;
   background-size: 100% 80%;
-  margin-left: 30px;
+  /* margin-left: 30px; */
   transition-duration: .5s;
 
   &:hover {
@@ -331,8 +349,12 @@ h2 {
   background-image: url("./image/ddoda_main.png");
   background-size: 100%;
 }
-.project:last-of-type {
+.project:nth-of-type(3) {
   background-image: url("./image/blog_main.png");
+  background-size: 100%;
+}
+.project:nth-of-type(4) {
+  background-image: url("./image/catch_main.png");
   background-size: 100%;
 }
 

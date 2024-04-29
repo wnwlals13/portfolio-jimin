@@ -135,6 +135,25 @@ function fillModal(e) {
     modal_detail.addEventListener("click", (e) => {
       window.open("https://github.com/wnwlals13/myBlogApp");
     });
+  } else if (target == "캐치테이블 클론코딩 project") {
+    modal_title.innerText = target;
+    modal_title.style.paddingBottom = "10px";
+    modal_img.src = "./image/catch_main.png";
+    modal_description.innerText = `
+    프로젝트 기간 : 2024년 03월 02일 ~ 진행중
+    기술 스택 : React, Recoil, tailwindCSS, axios
+    프로젝트 인원 : 4명 (프론트 2명, 백엔드 2명)
+    프론트 기여도 : 50%
+
+    [ 구현 기능 ]
+    - Swagger API를 활용한 프론트엔드, 백엔드 개발 협업
+    - Axios 사용하여 REST API 연동
+    - 캐치테이블 UI
+    
+  `;
+    modal_detail.addEventListener("click", (e) => {
+      window.open("https://github.com/sky-catch/Front");
+    });
   }
   modalInner.appendChild(modal_title);
   modalInner.appendChild(modal_close);
