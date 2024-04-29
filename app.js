@@ -3,14 +3,14 @@ let scrollTop = 0;
 let offset = 0;
 let height = 0;
 let position = 0;
-const skillSet = [70, 70, 70, 50, 55, 40, 40];
+const skillSet = [70, 70, 70, 60, 50, 40, 40];
 const body = document.querySelector("body");
 const mainLogo = document.querySelector(".mainLogo");
 const square = document.querySelector("body .square");
 const navbar = document.querySelector(".navbar");
 const scrollbar = document.querySelector(".scrollbar");
 const goUp = document.querySelector(".goUp");
-const skillbar = document.querySelectorAll(".skill__bar div");
+const skillbar = document.querySelectorAll(".skill__bar");
 const project = document.querySelectorAll(".project");
 const projects = document.querySelector(".projects");
 const landingPage = document.querySelector(".landingPage");
@@ -57,8 +57,14 @@ function contactHandle(data) {
   }
 }
 
-function fillModal(e) {
-  const target = e.target.innerText;
+function fillModal(param) {
+  //modal 띄우기
+  modalWrapper.style.height = `${body.clientHeight}px`;
+  modalWrapper.style.top = "0";
+  modalWrapper.classList.add("show");
+  modalInner.classList.add("show");
+
+  const target = param;
   modalInner.innerHTML = "";
   let modal_title = document.createElement("h2");
   let modal_close = document.createElement("p");
@@ -80,7 +86,8 @@ function fillModal(e) {
   <i class="fab fa-github"></i>
   <p> source code </p>
   `;
-  if (target == "Ddoda project") {
+  
+  if (target == "project") {
     modal_title.innerText = target;
     modal_title.style.paddingBottom = "10px";
     modal_img.src = "./image/ddoda_main.png";
@@ -99,7 +106,7 @@ function fillModal(e) {
     modal_detail.addEventListener("click", (e) => {
       window.open("https://github.com/JJINDdoda/JJIN_DDODA_FINAL");
     });
-  } else if (target == "Portfolio project") {
+  } else if (target == "project second") {
     modal_title.innerText = target;
     modal_title.style.paddingBottom = "10px";
     modal_img.src = "./image/portfolio.png";
@@ -116,7 +123,7 @@ function fillModal(e) {
     modal_detail.addEventListener("click", (e) => {
       window.open("https://github.com/wnwlals13/portfolio-jimin");
     });
-  } else if (target == "Blog project") {
+  } else if (target == "project third") {
     modal_title.innerText = target;
     modal_title.style.paddingBottom = "10px";
     modal_img.src = "./image/blog_main.png";
@@ -135,7 +142,7 @@ function fillModal(e) {
     modal_detail.addEventListener("click", (e) => {
       window.open("https://github.com/wnwlals13/myBlogApp");
     });
-  } else if (target == "캐치테이블 클론코딩 project") {
+  } else if (target == "project fourth") {
     modal_title.innerText = target;
     modal_title.style.paddingBottom = "10px";
     modal_img.src = "./image/catch_main.png";
@@ -211,13 +218,25 @@ goUp.addEventListener("click", (e) => {
   window.scrollTo({ top: landingPage.offsetTop, behavior: "smooth" });
 });
 
-projects.addEventListener("click", (e) => {
-  fillModal(e);
-  modalWrapper.style.height = `${body.clientHeight}px`;
-  modalWrapper.style.top = "0";
-  modalWrapper.classList.add("show");
-  modalInner.classList.add("show");
+project.forEach((item)=>{
+  item.addEventListener("click", (e)=> {
+    console.log(e.currentTarget.className);
+    fillModal(e.currentTarget.className);
+  })
 });
+
+// project.forEach((item) => {
+//   console.log(item.className);
+//   item.addEventListener("click", (e) => {
+//     console.log('e', e);
+//     // console.log(document.querySelectorAll(".project").target);
+//     fillModal(e);
+//     modalWrapper.style.height = `${body.clientHeight}px`;
+//     modalWrapper.style.top = "0";
+//     modalWrapper.classList.add("show");
+//     modalInner.classList.add("show");
+//   });
+// });
 
 modalWrapper.addEventListener("click", (e) => {
   offModal(e);
