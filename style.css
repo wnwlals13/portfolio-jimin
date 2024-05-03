@@ -8,6 +8,23 @@
   font-weight: 400;
   font-style: normal;
 }
+/* -------------------------- media -------------------------- */
+
+@media (max-width : 767px) {
+  .timeline {
+    margin: 0 20px 0 100px;
+  }
+  .event {
+    &:before {
+      left : -140px;
+      width : 100px;
+    }
+  }
+  .workPage .projects {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+  .
+}
 
 /* -------------------------- Common -------------------------- */
 * {
@@ -20,11 +37,10 @@ html {
   margin: 0;
   padding: 0;
   overflow-x: overlay;
+  min-width : 375px;
 }
 h2 {
-  /* font-size: 40px; */
   font-family: "Raleway", sans-serif;
-  /* padding-bottom: 40px; */
 }
 
 .main {
@@ -32,7 +48,7 @@ h2 {
   flex-direction : column;
 }
 
-.landingPage, .skillPage, .experiencePage, .workPage  {
+.landingPage, .skillPage, .experiencePage, .workPage, .contactPage  {
   width: 100%;
   height: 100vh;
   padding : 0 25px;
@@ -44,6 +60,9 @@ h2 {
   padding-top : 70px;
   padding-bottom : 50px;
   margin-bottom : 50px;
+}
+.contactPage {
+  padding : 100px;
 }
 
 /* -------------------------- Nav Section -------------------------- */
@@ -203,7 +222,9 @@ h2 {
 
 /* -------------------------- Experience Section -------------------------- */
 .timeline {
-  margin: 0 120px 0 180px;
+  position : relative;
+  border-sizing : border-box;
+  margin: 0 50px 0 180px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -250,10 +271,16 @@ h2 {
 .event h2 {
   padding-bottom: 10px;
   font-size: 20px;
+  white-space : nowrap;
+  overflow : hidden;
+  text-overflow : ellipsis;
 }
 .event p {
   margin-bottom: 40px;
   color: #747474;
+  white-space : nowrap;
+  overflow : hidden;
+  text-overflow : ellipsis;
 }
 
 /* -------------------------- Skill Section -------------------------- */
@@ -305,6 +332,7 @@ h2 {
 }
 
 /* -------------------------- Projects Section -------------------------- */
+
 .workPage .projects {
   display: grid;
   grid-template-columns : repeat(2, 1fr);
@@ -315,7 +343,7 @@ h2 {
   box-sizing : border-box;
 }
 .workPage .projects .project {
-  width : 100%;
+  width : 100% !important;
   height : 100%;
   display : flex;
   flex-direction : column;
@@ -408,14 +436,16 @@ h2 {
   transition: all 0.8s ease-in-out;
   padding-bottom: 40px;
 }
-.contentwrapper p {
+.contentwrapper pre {
   line-height: 30px;
+  overflow : hidden;
+  text-overflow : ellipsis;
 }
 .contentwrapper h4 {
   padding-top: 30px;
   padding-bottom: 5px;
 }
-.contentwrapper p:last-of-type {
+.contentwrapper pre:last-of-type {
   color: rgba(0, 0, 0, 0.4);
 }
 .goUp {
@@ -449,7 +479,8 @@ h2 {
   height: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap : 30px;
 }
 .contact-profile{
   background-image: url("./image/profile.jpg");
@@ -458,16 +489,22 @@ h2 {
   width: 90px;
   height: 90px;
   border-radius: 50%;
+  min-width : 90px;
 }
 .contact-content p {
   width: 80%;
   height: 100%;
   align-self: flex-end;
+  white-space : wrap;
+  overflow : hidden;
+  text-overflow : ellipsis;
+
 }
 .contact-icon {
   margin-top: 20px;
   padding-left: 5px;
   display: flex;
+  gap : 15px;
   flex-direction: row;
   justify-content: flex-start;
   list-style-type: none;

@@ -46,7 +46,7 @@ function projectHandle(data) {
 
 function contactHandle(data) {
   if (data >= 88) {
-    contentwrapper.style.width = `700px`;
+    contentwrapper.style.width = `100%`;
     contentwrapper.style.height = `500px`;
     setTimeout(() => {
       content.style.opacity = "1";
@@ -225,28 +225,17 @@ project.forEach((item)=>{
   })
 });
 
-// project.forEach((item) => {
-//   console.log(item.className);
-//   item.addEventListener("click", (e) => {
-//     console.log('e', e);
-//     // console.log(document.querySelectorAll(".project").target);
-//     fillModal(e);
-//     modalWrapper.style.height = `${body.clientHeight}px`;
-//     modalWrapper.style.top = "0";
-//     modalWrapper.classList.add("show");
-//     modalInner.classList.add("show");
-//   });
-// });
-
 modalWrapper.addEventListener("click", (e) => {
   offModal(e);
 });
 
 linkTo.addEventListener("click", (e) => {
-  console.log(e.target.className);
-  if (e.target.className == "fab fa-github") {
+  var page = e.target.className;
+  if ( page == "fab fa-github") {
     window.open("https://github.com/wnwlals13");
-  } 
+  } else if ( page == "fa fa-blog" ) {
+    window.open("https://neighbor.tistory.com/");
+  }
 });
 
 window.addEventListener("scroll", (e) => {
