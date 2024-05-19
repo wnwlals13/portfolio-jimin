@@ -25,6 +25,8 @@ const linkTo = document.querySelector(".linkTo");
 const modalWrapper = document.querySelector(".modalWrapper");
 const modalInner = document.querySelector(".modalInner");
 
+const aboutMePage = document.querySelector('.myselfPage');
+
 /* -------------------------- Function -------------------------- */
 function skillbarHandle(data) {
   let i = 0;
@@ -46,8 +48,6 @@ function projectHandle(data) {
 
 function contactHandle(data) {
   if (data >= 88) {
-    contentwrapper.style.width = `100%`;
-    contentwrapper.style.height = `500px`;
     setTimeout(() => {
       content.style.opacity = "1";
       content.style.transform = "translateY(0)";
@@ -175,13 +175,13 @@ function offModal(e) {
   }
 }
 
-// 텍스트 애니메이션
+// 텍스트 타이핑 애니메이션
 const h2 = document.querySelector('.blinking_txt');
 const cursor = document.querySelector('.cursor');
 const shake = document.querySelector('.landing__shake');
 
 function typing (_, counter = 0) {
-  const txt = `I'm Jimin Joo. \n 제 포트폴리오에 오신 것을 환영합니다.🖐`;
+  const txt = `포트폴리오 사이트입니다.🖐`;
 
   setInterval(() => {
     if(txt.length === counter) {
@@ -199,19 +199,24 @@ mainLogo.addEventListener("click", () => {
   location.href = location.href;
 });
 
-navbar.addEventListener("click", (e) => {
-  const pageName = e.target.className;
-  if ( pageName == "main" ) {
-    window.scrollTo({ top: landingPage.offsetTop, behavior: "smooth" });
-  } else if ( pageName == "experience" ){
-    window.scrollTo({ top: experiencePage.offsetTop, behavior: "smooth" });
-  } else if ( pageName == "works" ){
-    window.scrollTo({ top: workPage.offsetTop, behavior: "smooth" });
-  } else if ( pageName == "skill" ){
-    window.scrollTo({ top: skillPage.offsetTop, behavior: "smooth" });
-  } else if ( pageName == "contact" ){
-    window.scrollTo({ top: contactPage.offsetTop, behavior: "smooth" });
-  }
+const navLi = document.querySelectorAll('.navbar li');
+navLi.forEach((item,index)=> {
+  item.addEventListener('click', ()=> {
+    console.log(item.className);
+    if(item.className.indexOf('main') > -1 ) {
+      gsap.to(window, {duration : .6, scrollTo : {y : landingPage.offsetTop}})
+    } else if ( item.className.indexOf("experience") > -1 ){
+      gsap.to(window, {duration : .6, scrollTo : {y : experiencePage.offsetTop}})
+    } else if ( item.className.indexOf("works") > -1 ){
+      gsap.to(window, {duration : .6, scrollTo : {y : workPage.offsetTop}})
+    } else if ( item.className.indexOf("skill") > -1 ){
+      gsap.to(window, {duration : .6, scrollTo : {y : skillPage.offsetTop}})
+    } else if ( item.className.indexOf("contact") > -1 ){
+      gsap.to(window, {duration : .6, scrollTo : {y : contactPage.offsetTop}})
+    } else if ( item.className.indexOf("myself") > -1 ){
+      gsap.to(window, {duration : .6, scrollTo : {y : aboutMePage.offsetTop}})
+    }
+  })
 });
 
 goUp.addEventListener("click", (e) => {
@@ -254,4 +259,38 @@ window.addEventListener("scroll", (e) => {
   skillbarHandle(position);
   projectHandle(position);
   contactHandle(position);
+});
+
+/* 마우스 커서 따라다니는 애니메이션 구현해보기 (240519) */
+const mouse = document.querySelector('.mouse_cursor');
+const point = document.querySelector('.mouse_pointer');
+const header = document.querySelectorAll('.navbar span');
+window.addEventListener("mousemove", e=> {
+  let x = e.pageX;
+  let y = e.pageY;
+
+  //마우스 이벤트의 부드럽고 섬세한 작동을 위해 GSAP 라이브러리 설치
+  gsap.to(mouse,{duration:0.25, left:x-35, top:y-35});
+  point.style.left = `${x-5}px`;
+  point.style.top = `${y-5}px`;
+
+  //상단 헤더 메뉴에 위치한 경우, 메뉴 컬러 바꾸기
+  header.forEach(span=> {
+    span.addEventListener("mouseenter", (e)=>{
+      span.classList.add('active');
+    })
+    span.addEventListener("mouseleave", (e)=>{
+      span.classList.remove('active');
+    })
+  })
+});
+
+/* 다크모드 구현해보기(240519) */
+const themeToggle = document.querySelector('.check');
+themeToggle.addEventListener("click", e=> {
+  if(e.target.checked) {
+    document.documentElement.setAttribute('color-theme', 'dark');
+  } else {
+    document.documentElement.setAttribute('color-theme', 'light');
+  }
 });

@@ -8,8 +8,20 @@
   font-weight: 400;
   font-style: normal;
 }
-/* -------------------------- media -------------------------- */
+@font-face {
+  font-family: 'WavvePADO-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2404@1.0/WavvePADO-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SUITE-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
 
+/* -------------------------- media -------------------------- */
 @media (max-width : 767px) {
   .timeline {
     margin: 0 20px 0 100px;
@@ -23,14 +35,36 @@
   .workPage .projects {
     grid-template-columns: repeat(1, 1fr) !important;
   }
-  .
+}
+
+/* 다크모드 구현을 위한 컬러변수 지정 */
+:root {
+  --mainColor : rgba(24, 154, 180, 1);
+  --pointColor : rgba(116, 231, 218, 1);
+  --subColor : rgba(212, 242, 244, 1);
+  --subColor-opacity : rgba(212, 242, 244, 0.2);
+  --white-opacity : rgba(255, 255, 255, 0.3);
+  --boldColor : rgba(4, 68, 95, 1);
+  --blackColor : rgba(0, 0, 0, 1);
+}
+:root[color-theme='light'] {
+  --background : #fff;
+  --boxColor : #000;
+  --textColor-main :  rgba(0, 0, 0, 0.7);
+}
+:root[color-theme='dark'] {
+  --background : #000;
+  --boxColor : #fff;
+  --textColor-main :  rgba(255, 255, 255, 0.7);
 }
 
 /* -------------------------- Common -------------------------- */
 * {
   box-sizing: border-box;
   margin: 0;
-  font-family: 'Pretendard-Regular';
+  font-family: 'SUITE-Regular';
+  
+  color : var(--boxColor);
 }
 body,
 html {
@@ -38,6 +72,8 @@ html {
   padding: 0;
   overflow-x: overlay;
   min-width : 375px;
+  cursor : none;
+  background : var(--background);
 }
 h2 {
   font-family: "Raleway", sans-serif;
@@ -48,15 +84,15 @@ h2 {
   flex-direction : column;
 }
 
-.landingPage, .skillPage, .experiencePage, .workPage, .contactPage  {
-  width: 100%;
+.landingPage, .skillPage, .experiencePage, .workPage, .contactPage, .myselfPage  {
+  width: 75vw;
   height: 100vh;
-  padding : 0 25px;
+  margin : 0 auto;
   display : flex;
   flex-direction : column;
   gap : 40px;
 }
-.skillPage, .experiencePage, .workPage  {
+.skillPage, .experiencePage, .workPage, .myselfPage  {
   padding-top : 70px;
   padding-bottom : 50px;
   margin-bottom : 50px;
@@ -67,19 +103,20 @@ h2 {
 
 /* -------------------------- Nav Section -------------------------- */
 .mainLogo {
-  background-image: url("./image/logo.png");
+  background-image: url("./image/Flower.svg");
   background-size: cover;
   width : 50px;
   height : 50px;
   background-position: center center;
-  background-size: 100% 100%;
+  background-size: 50% 50%;
+  background-repeat : no-repeat;
+  background-color : transparent;
 }
 .context {
   list-style-type: none;
-  /* padding: 20px 40px; */
   display: flex;
   justify-content: flex-end;
-  cursor: pointer;
+  padding : 0;
 }
 .navbar {
   position: fixed;
@@ -88,12 +125,58 @@ h2 {
   justify-content: space-between;
   z-index: 10;
   padding: 0 20px;
-  /* margin : 0 20px; */
   align-items: center;
   background-color: rgba( 255, 255, 255, 0.5 );
 }
+.__flex {
+  display : flex;
+  align-items : center;
+}
+.navbar .context, .navbar li {
+  background-color : transparent;
+}
 .navbar li {
   padding: 0 10px;
+}
+.nav_right {
+  gap : 10px;
+}
+.toggle-theme {
+  gap : 5px;
+}
+
+.navbar li span.active {
+  color : var(--pointColor);
+  transition : color 220ms ease-in;
+}
+
+/* 다크모드 토글버튼 UI만들기 */
+.check {
+  appearance : none;
+  position : relative;
+  border : max(1px, 0.1em) solid gray;
+  border-radius : 1.25em;
+  width : 2.25em;
+  height : 1.25em;
+}
+.check::before {
+  content : "";
+  position : absolute;
+  width : 1em;
+  height : 1em;
+  left : 0;
+  border-radius : 50%;
+  background-color : gray;
+  transition: left 160ms linear;
+  transform: scale(0.8);
+}
+.check:checked {
+  background : #6CEA9F;
+  border-color : #6CEA9F;
+}
+.check:checked::before {
+  background-color : #fff;
+  left : 1em;
 }
 
 /* -------------------------- Scroll Section -------------------------- */
@@ -115,7 +198,7 @@ h2 {
 }
 
 .scrollbar {
-  background: rgba(31, 162, 255, 1);
+  background: var(--mainColor);
 }
 .scroll {
   color: rgb(142, 142, 142);
@@ -176,30 +259,13 @@ h2 {
   width : 100%;
 }
 .landing__about {
-  /* width: 360px; */
   letter-spacing: 3px;
   z-index: 10;
 }
-.landing__about h2 {
-  /* font-size: 10x; */
-  font-family: "Raleway", sans-serif;
-  /* padding-bottom: 20px; */
+.landing__about .blinking_txt {
+  font-family: "WavvePADO-Regular", sans-serif;
+  display : inline-block;
 }
-.landing__shake {
-  /* font-size: 30px; */
-  /* display: inline-block; */
-  /* animation: shake 1s ease-in-out infinite; */
-  /* transform: rotate(-10deg); */
-  /* transform-origin: 50%; */
-}
-.image-box {
-  /* background-image: url("./image/diagram_main.png"); */
-  /* background-size: cover; */
-  /* width : 500px; */
-  /* height : 500px; */
-  /* animation: upDown 1s infinite alternate; */
-}
-
 @keyframes upDown {
   0% {
     transform: translate(0,0);
@@ -220,6 +286,37 @@ h2 {
   }
 }
 
+/* ---about me-- */
+.myselfPage .wrapper {
+  height : 100%;
+  justify-content: space-between;
+  align-items : center;
+}
+.myselfPage .wrapper .desc, 
+.myselfPage .wrapper .img {
+  flex : 1;
+  justify-content : center;
+}
+.myselfPage .wrapper .img .img_card {
+  width : 40vmin;
+  height : 60vmin;
+  display : flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, .231372549);
+  background: linear-gradient(180deg, #505050 3%, #1f1f1f 80%);
+  box-shadow: inset 10px 10px 40px -35px #fff;
+  transition: transform .7s ease-out;
+}
+.myselfPage .wrapper .img .img_card .profile {
+  width : 100%;
+  height : 100%;
+  background : url("./image/profile.jpg") 50% 50% no-repeat;
+  background-size : cover;
+}
+
 /* -------------------------- Experience Section -------------------------- */
 .timeline {
   position : relative;
@@ -229,10 +326,11 @@ h2 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-left: 5px solid #1FA2FF;
+  border-left: 5px solid var(--pointColor);
 }
 .timeline li h2 {
   font-weight : 600;
+  color : var(--boxColor);
 }
 .event {
   position: relative;
@@ -254,11 +352,11 @@ h2 {
   &:before {
     left : -200px;
     content: attr(data-date);
-    color: #747474;
+    color : var(--boxColor);
   }
 
   &:after {
-      box-shadow: 0 0 0 4px #1FA2FF; 
+      box-shadow: 0 0 0 4px var(--pointColor); 
       background: #fff;  
       left : -47px;
       border-radius: 50%;  
@@ -277,7 +375,7 @@ h2 {
 }
 .event p {
   margin-bottom: 40px;
-  color: #747474;
+  color: var(--textColor-main);
   white-space : nowrap;
   overflow : hidden;
   text-overflow : ellipsis;
@@ -307,12 +405,10 @@ h2 {
   width : 100px;
 }
 .skillWrapper .skill li .skill__back {
-  /* margin-bottom: 23px; */
-  /* padding : 15px 0; */
   width: 100%;
   height: 30px;
   border-radius: 10px;
-  background-color: rgba(208, 208, 208, 0.1);
+  background-color: var(--white-opacity);
 }
 .skillWrapper .skill li .skill__bar {
   text-align: right;
@@ -352,6 +448,8 @@ h2 {
   background: #fff;
   box-shadow: -2px 19px 44px 0px rgba(0, 0, 0, 0.06);
   border-radius: 15px;
+  position : relative;
+  overflow : hidden;
 
   &:hover {
     transform: translateY(-6px);
@@ -374,9 +472,8 @@ h2 {
 }
 .project p,
 .project span {
-  /* color: rgba(0, 0, 0, 0.8); */
+  color : var(--blackColor);
   padding : 20px;
-  font-weight : 800;
 }
 .workPage .projects .project .img {
   width : 100%;
@@ -402,7 +499,7 @@ h2 {
 
 /* -------------------------- Contact Section -------------------------- */
 .contactPage {
-  background: linear-gradient(
+  /* background: linear-gradient(
     39deg,
     rgba(18, 216, 250, 1) 0%,
     rgba(166, 255, 203, 1) 100%
@@ -410,16 +507,20 @@ h2 {
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
+  display: flex;
+  justify-content: center;
+  align-items : center;
 }
 .contentwrapper {
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
   padding: 50px;
-  width: 50px;
-  height: 50px;
+  width: auto;
+  height: 400px;
   background: #fff;
   border-radius: 10px;
   box-shadow: -2px 19px 44px 0px rgba(0, 0, 0, 0.16);
@@ -438,7 +539,7 @@ h2 {
 }
 .contentwrapper pre {
   line-height: 30px;
-  overflow : hidden;
+  text-wrap : wrap;
   text-overflow : ellipsis;
 }
 .contentwrapper h4 {
@@ -449,7 +550,7 @@ h2 {
   color: rgba(0, 0, 0, 0.4);
 }
 .goUp {
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 .linkTo {
   font-size: 30px;
@@ -463,11 +564,11 @@ h2 {
   width: 30px;
   height: 30px;
   margin-left: 10px;
-  cursor: pointer;
+  /* cursor: pointer; */
   transition: all 0.1s ease-in-out;
 }
 .linkTo i {
-  cursor: pointer;
+  /* cursor: pointer; */
   transition: all 0.1s ease-in-out;
 }
 
@@ -585,11 +686,37 @@ h2 {
   right: 50px;
   top: 50px;
   font-size: 20px;
-  cursor: pointer;
+  /* cursor: pointer; */
   background: linear-gradient(
     39deg,
     rgba(149, 237, 149, 1) 0%,
     rgba(110, 206, 219, 1) 100%
   );
   border-radius: 10px;
+}
+
+/* 마우스 커서 */
+.mouse_cursor {
+  position : absolute;
+  left : 0;
+  top : 0;
+  width : 70px;
+  height : 70px;
+  z-index : 9999;
+  border-radius : 50%;
+  border : 1px solid var(--mainColor);
+  background-color : var(--subColor-opacity);
+  transition : transform 0.3s, opacity 0.2s;
+  pointer-events : none;
+}
+.mouse_pointer {
+  position : absolute;
+  left : 0;
+  top : 0;
+  width : 10px;
+  height : 10px;
+  z-index : 9999;
+  border-radius : 50%;
+  background : var(--mainColor);
+  pointer-events : none;
 }
