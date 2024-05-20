@@ -10,6 +10,14 @@
     <!-- GSAP라이브러리 CDN -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollToPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <!-- swiper -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
@@ -51,8 +59,14 @@
       <section class="landingPage">
         <div class="landing__about">
           <div class="container">
-            <h2 class="blinking_txt"></h2>
-            <span class="cursor">|</span>
+            <!-- <h2 class="blinking_txt"></h2>
+            <span class="cursor">|</span> -->
+            <div class="mainTxt"><span>Love Work</span></div>
+            <div class="mainTxt"><span>Passionate</span></div>
+            <div class="mainTxt"><span>Writing Developer</span></div>
+          </div>
+          <div class="arrow-b">
+            <div class="icon"></div>
           </div>
         </div>
         <div class="image-box">
@@ -62,19 +76,20 @@
       <section class="myselfPage">
         <div class="wrapper __flex">
           <div class="desc"><pre>
-<strong>기록하고 성장하는 개발자입니다.</strong>
+<h2>기록하고 성장하는 개발자입니다.</h2>
 사용자들에게 더 좋은 서비스를 제공하기 위해
 고민하고 성장하는 주니어 프론트엔드 개발자 주지민입니다.
 함께 좋은 인연 만들어나갔으면 좋겠습니다.</pre></div>
           <div class="img">
             <div class="img_card">
-              <div class="profile"></div>
+              <div class="profile ir"></div>
             </div>
           </div>
         </div>
       </section>
       <!-- # Experience Section -->
       <section class="experiencePage">
+        <div class="wrapper">
         <h2>Experience</h2>
           <ul class="timeline">
             <li class="event" data-date="2023.09 - 2024.03">
@@ -102,9 +117,11 @@
               <p>- 미디어영상학부 디지털 미디어 전공</p>
             </li>
           </ul>
+        </div>
       </section>
       <!-- # Skill Section -->
       <section class="skillPage">
+        <div class="wrapper">
         <h2>Skills</h2>
         <div class="skillWrapper">
           <ul class="skill">
@@ -141,45 +158,58 @@
       </section>
       <!-- # Projects Section -->
       <section class="workPage">
-        <h2>Projects</h2>
-        <div class="projects">
-          <div class="project">
-            <div class="img first"></div>
-            <span>Ddoda project</span>
-          </div>
-          <div class="project second">
-            <div class="img second"></div>
-            <span>Portfolio project</span>
-          </div>
-          <div class="project third">
-            <div class="img third"></div>
-            <span>Blog project</span>
-          </div>
-          <div class="project fourth">
-            <div class="img fourth"></div>
-            <span>캐치테이블 클론코딩 project</span>
+        <div class="wrapper">
+          <h2>Projects</h2>
+          <div class="projects">
+            <div class="project first">
+              <div class="img first"></div>
+              <span>Ddoda project</span>
+            </div>
+            <div class="project second">
+              <div class="img second"></div>
+              <span>주지민 포트폴리오</span>
+            </div>
+            <!-- <div class="project third">
+              <div class="img third"></div>
+              <span>Blog project</span>
+            </div> -->
+            <div class="project fourth">
+              <div class="img fourth"></div>
+              <span>캐치테이블 클론코딩</span>
+            </div>
           </div>
         </div>
+      <div>
       </section>
       <!-- # Contact Section -->
       <section class="contactPage">
         <div class="contentwrapper">
           <div class="content">
-            <h2>Contact</h2>
-            <div class="contact-content">
+            <!-- <h2>Contact</h2> -->
+            <!-- <div class="contact-content"> -->
               <!-- <div class="contact-profile"></div> -->
-              <pre>
-연락이나 궁금하신 점은 아래 주소로 문의주세요 :)
-              </pre>
-            </div>
-          </div>
+              <p>
+                If you'd like to get in touch with me, <br/>
+                please contact me using the 
+                <span class="circle-wrapper">
+                  <span class="circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 68"><g fill="none" stroke="#ffe818" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M105 10C28-9-29 40 34 56c62 16 91-29 66-29"></path><path d="M109 16C82-20-56 21 30 55s105-27 75-45"></path></g></svg>
+                  </span>
+                  <span class="poinnterTxt">information below!</span>
+                  <span class="circle-arrow">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 196 48"><g fill="none" stroke="#ffe818" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4"><path d="M154 21c6-2 13-4 23 0-13-5-16-8-18-15"></path><path d="M14 28c29-22 101-5 104 9 1 7-18 7 0-12s53-6 53-6"></path></g></svg>
+                  </span>
+                </span>
+              </p>
+            <!-- </div> -->
+          <!-- </div> -->
           <div class="linkTo">
             <ul class="contact-icon">
               <li><a href="mailto:wnwlals1372@gmail.com">
-                <i class="fa fa-envelope" aria-hidden="true" ></i>
+                <i class="fa fa-envelope white" aria-hidden="true" ></i>
               </a></li>
-              <li><i class="fab fa-github"></i></li>
-              <li><i class="fa fa-blog"></i></li>
+              <li><i class="fab fa-github white"></i></li>
+              <li><i class="fa fa-blog white"></i></li>
             </ul>
           </div>
         </div>
@@ -188,6 +218,23 @@
     <!-- #Modal Section -->
     <section class="modalWrapper">
         <div class="modalInner">
+          <div class="btn">
+            <button>x</button>
+          </div>
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide"><img></div>
+            </div>
+          </div>
+          <div class="modal-content">
+            <div>
+              <h3>title</h3>
+            </div>
+            <p>
+              <span class="main-coptent">contents</span>
+              <a class="git"><i class="fab fa-github fa-lg"></i><span>이동</span></a>
+              </p>
+          </div>
         </div>
     </section>
   </body>
