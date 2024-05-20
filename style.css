@@ -359,8 +359,7 @@ h2 {
 /* ---about me-- */
 .myselfPage .wrapper .img {
   position: relative;
-  right : -55%;
-  /* right : 0; */
+  right : -45%;
   transform : rotate(10deg);
 }
 
@@ -593,7 +592,7 @@ h2 {
   display : grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 1.5rem;
-  grid-row-gap: 11.5rem;
+  grid-row-gap: 14.5rem;
   text-align: left;
   padding-left: 0;
   padding-right: 0;
@@ -612,8 +611,7 @@ h2 {
   /* transition: all 1s cubic-bezier(0.83, 0.01, 0.09, 0.99); */
 }
 
-.contentwrapper p,
-.contentwrapper .linkTo {
+.contentwrapper p {
   grid-column : span 12;
 }
 
@@ -701,12 +699,7 @@ h2 {
 }
 .linkTo {
   font-size: 30px;
-  display: flex;
-  /* opacity: 0; */
-  /* transform: translateY(50px); */
-  /* transition: all 0.8s ease-in-out; */
-  justify-content: flex-end;
-  width : 100%;
+  grid-column: 8 / span 5;
 }
 .linkTo img {
   width: 30px;

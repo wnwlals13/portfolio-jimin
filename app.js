@@ -173,19 +173,16 @@ navLi.forEach((item,index)=> {
 
 window.addEventListener('scroll', e=>{
   const scrollTop = window.scrollY;
-  
-  if(scrollTop+10 == aboutMePage.offsetTop) {
+  if(scrollTop == aboutMePage.offsetTop) {
+    
     gsap.to(img_card, {scrollTrigger : {
       trigger : img_card,
       toggleActions: "restart reverse restart reverse",
       start: "0% 60%",
       end:"100% 80%",
     },
-  // x : percentToPixel(-80)+'px',
-  // xPercent : 800,
-  
-  xPercent : -170,
-  rotation : -5}
+  xPercent : -230,
+  rotation : 0}
   )}
   
   if(scrollTop+20 >= contactPage.offsetTop) {
@@ -195,6 +192,7 @@ window.addEventListener('scroll', e=>{
     circle.classList.remove('active');
     circle_arrow.classList.remove('active');
   }
+  
 })
 
 goUp.addEventListener("click", (e) => {
