@@ -6,7 +6,8 @@
     <title>Jimin_portfolio</title>
     <link rel="icon" href="../favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="style.css" />
-    <script src="app.js" defer></script>
+    <script type="module" src="app.js" defer></script>
+    <script type="module" src="./data/experience.js"></script>
     <!-- GSAP라이브러리 CDN -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollToPlugin.min.js"></script>
@@ -90,32 +91,7 @@
       <section class="experiencePage">
         <div class="wrapper">
         <h2>Experience</h2>
-          <ul class="timeline">
-            <li class="event" data-date="2023.09 - 2024.03">
-              <h2>딥세일즈 서비스기획팀</h2>
-              <p>역할 : 서비스 기획</br>
-                - 사용자 요구사항 분석 및 서비스 기능 개선</br>
-                - 요구사항 분석 UIUX 화면 설계</p>
-            </li>
-            <li class="event" data-date="2021.07 - 2023.06">
-              <h2>넷앤드 사업개발팀</h2>
-              <p>역할 : 웹 솔루션 개발</br>
-                - Javascript, ExtJs를 사용하여 고객 요구사항 기능 개발</br>
-                - 프론트 기능에 사용되는 REST API 연동</br>
-                - 요구사항 분석 UIUX 화면 설계</p>
-            </li>
-            <li class="event" data-date="2020.07 - 2020.12">
-              <h2>NCS 웹 프로그래밍 교육과정 수강</h2>
-              <p>교육기관 : KH정보교육원</br>
-                - HTML, Javascript, Java, SpringMVC, Mybatis, JSP 개발 기술 습득</br>
-                - '또다' 서비스 개발 팀 프로젝트 진행
-              </p>
-            </li>
-            <li class="event" data-date="2015.03 - 2020.03">
-              <h2>광운대학교 졸업</h2>
-              <p>- 미디어영상학부 디지털 미디어 전공</p>
-            </li>
-          </ul>
+          <ul class="timeline"></ul>
         </div>
       </section>
       <!-- # Skill Section -->
@@ -160,22 +136,22 @@
         <div class="wrapper">
           <h2>Projects</h2>
           <div class="projects">
-            <div class="project first">
+            <!-- <div class="project first">
               <div class="img first"></div>
-              <span>Ddoda project</span>
+              <span>캐치테이블 클론코딩</span>
             </div>
             <div class="project second">
               <div class="img second"></div>
               <span>주지민 포트폴리오</span>
             </div>
-            <!-- <div class="project third">
+            <div class="project third">
               <div class="img third"></div>
               <span>Blog project</span>
-            </div> -->
+            </div>
             <div class="project fourth">
               <div class="img fourth"></div>
-              <span>캐치테이블 클론코딩</span>
-            </div>
+              <span>Ddoda project</span>
+            </div> -->
           </div>
         </div>
       <div>
@@ -184,9 +160,6 @@
       <section class="contactPage">
         <div class="contentwrapper">
           <div class="content">
-            <!-- <h2>Contact</h2> -->
-            <!-- <div class="contact-content"> -->
-              <!-- <div class="contact-profile"></div> -->
               <p>
                 If you'd like to get in touch with me, <br/>
                 please contact me using the 
@@ -200,8 +173,6 @@
                   </span>
                 </span>
               </p>
-            <!-- </div> -->
-          <!-- </div> -->
           <div class="linkTo">
             <ul class="contact-icon">
               <li><a href="mailto:wnwlals1372@gmail.com">

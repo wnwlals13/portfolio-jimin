@@ -1,33 +1,71 @@
+import { experience } from "./data/experience.js";
+import { projects } from "./data/project.js";
+
 /* -------------------------- Variables -------------------------- */
 let scrollTop = 0;
 let offset = 0;
 let height = 0;
 let position = 0;
 const skillSet = [70, 70, 70, 60, 50, 40, 40];
-const body = document.querySelector("body");
 const mainLogo = document.querySelector(".mainLogo");
-const square = document.querySelector("body .square");
-const navbar = document.querySelector(".navbar");
 const scrollbar = document.querySelector(".scrollbar");
 const goUp = document.querySelector(".goUp");
 const skillbar = document.querySelectorAll(".skill__bar");
-const project = document.querySelectorAll(".project");
-const projects = document.querySelector(".projects");
 const landingPage = document.querySelector(".landingPage");
-const landingAbout = document.querySelector(".landing__about");
 const experiencePage = document.querySelector(".experiencePage");
 const skillPage = document.querySelector(".skillPage");
 const workPage = document.querySelector(".workPage");
 const contactPage = document.querySelector(".contactPage");
-const contentwrapper = document.querySelector(".contentwrapper");
 const content = document.querySelector(".content");
 const linkTo = document.querySelector(".linkTo");
 const modalWrapper = document.querySelector(".modalWrapper");
-const modalInner = document.querySelector(".modalInner");
-
 const aboutMePage = document.querySelector('.myselfPage');
+const timeline = document.querySelector('.timeline');
+const projectsContainer = document.querySelector('.projects');
 
 /* -------------------------- Function -------------------------- */
+experience.map((item)=>{
+  let liTag = document.createElement('li');
+  let h2Tag = document.createElement('h2');
+  let pTag = document.createElement('p');
+
+  liTag.setAttribute('class', 'event');
+  liTag.setAttribute('data-date', item.date);
+  h2Tag.innerHTML = item.title;
+  pTag.innerHTML = item.content;
+
+  liTag.appendChild(h2Tag);
+  liTag.appendChild(pTag);
+  timeline.appendChild(liTag);
+})
+
+projects.map((item)=> {
+  let divTag = document.createElement('div');
+  let imgTag = document.createElement('div');
+  let spanTag = document.createElement('span');
+
+  divTag.setAttribute('class', `project ${item.id}`);
+  imgTag.setAttribute('class', `img ${item.id}`)
+  divTag.appendChild(imgTag);
+  spanTag.innerHTML = item.title;
+  divTag.appendChild(spanTag);
+
+  projectsContainer.appendChild(divTag);
+})
+
+projectsContainer.addEventListener('click', (e)=> {
+  let item = e.target.parentNode;
+  fillModal(item.className);
+  modalWrapper.classList.add('show');
+})
+
+// project.forEach((item)=>{
+//   item.addEventListener("click", (e)=> {
+//     fillModal(item.className);  //모달 내용 채우기
+//     modalWrapper.classList.add('show');
+//   })
+// });
+
 function skillbarHandle(data) {
   let i = 0;
   if (data >= 30 && data <= 65) {
@@ -38,13 +76,13 @@ function skillbarHandle(data) {
     });
   }
 }
-function projectHandle(data) {
-  if (data >= 63 && data <= 80) {
-    project.forEach((item) => {
-      item.style.width = `400px`;
-    });
-  }
-}
+// function projectHandle(data) {
+//   if (data >= 63 && data <= 80) {
+//     project.forEach((item) => {
+//       item.style.width = `400px`;
+//     });
+//   }
+// }
 
 function contactHandle(data) {
   if (data >= 88) {
@@ -62,73 +100,12 @@ const text = document.querySelector('.modalWrapper .modalInner .modal-content .m
 const git = document.querySelector('.modalWrapper .modalInner .modal-content .git');
 const slide = document.querySelector('.modalWrapper .modalInner .swiper-slide img');
 const closebtn = document.querySelector('.modalWrapper .modalInner .btn button');
-const projectList =[
-  {
-    id : 'project first',
-    title : '또다(건강관리 서비스)',
-    contents : `프로젝트 기간 : 2020년 11월 10일 ~ 2020년 12월 29일
-    기술 스택 : Java, Spring framework, JavaScript, jQuery
-    프로젝트 인원 : 4명 
-    기여도 : 30%
-
-    [ 구현 기능 ]
-    - JavaScript, JQuery, Bootstrap을 이용한 메인 웹 frontend 구현
-    - 캘린더 API를 활용한 다이어리 CRUD 기능
-    - 카카오 지도 API 활용한 소모임 장소 정보 제공
-    - AJAX를 이용한 게시판 댓글과 대댓글 기능 구현`,
-    linkr : 'https://github.com/JJINDdoda/JJIN_DDODA_FINAL',
-    img : './image/ddoda_main.png'
-  }, {
-    id : 'project second',
-    title : '개인 포트폴리오',
-    contents : `프로젝트 기간 : 2021년 01월 ~ 2021년 02월
-    기술 스택 : HTML, CSS, JavaScript
-    프로젝트 인원 : 1명 
-    기여도 : 100%
-
-    [ 구현 기능 ]
-    - CSS와 Vanilla JS만 사용하여 인터랙션 구현
-    - netlify를 사용하여 개인 포트폴리오 배포`,
-    linkr : 'https://github.com/wnwlals13/portfolio-jimin',
-    img : './image/portfolio.png'
-  }, {
-    id : 'project third',
-    title : ' 블로그 어플',
-    contents : `프로젝트 기간 : 2021년 02월 20일 ~ 2021년 05월
-    리뉴얼 기간 : 2023년 03년 25일 ~ 진행중
-    기술 스택 : JavaScript, React hooks, firebase
-    프로젝트 인원 : 1명 
-    기여도 : 100%
-
-    [ 구현 기능 ]
-    - React hooks 이용해 블로그 CRUD 기능 구현
-    - firebase auth를 이용한 로그인/아웃
-    - realtime database를 이용해 DB 연동`,
-    linkr : 'https://github.com/wnwlals13/myBlogApp',
-    img : './image/blog_main.png'
-  }, {
-    id : 'project fourth',
-    title : '캐치테이블 클론코딩',
-    contents : ` 프로젝트 기간 : 2024년 03월 02일 ~ 2024년 05월 27일
-    기술 스택 : React, Recoil, tailwindCSS, axios
-    프로젝트 인원 : 4명 (프론트 2명, 백엔드 2명)
-    프론트 기여도 : 50%
-
-    [ 구현 기능 ]
-    - Swagger API를 활용한 프론트엔드, 백엔드 개발 협업
-    - Axios 사용하여 REST API 연동
-    - 캐치테이블 UI`,
-    linkr : 'https://github.com/sky-catch/Front',
-    img : './image/catch_main.png'
-  }
-]
 
 function fillModal(param) {
   const target = param;
 
-  projectList.forEach((item,idx) => {
-    if(item.id == target) {
-      console.log(slide);
+  projects.forEach((item,idx) => {
+    if(target.indexOf(item.id) > -1) {
       title.innerText = item.title;
       text.innerText = item.contents;
       slide.src = item.img;
@@ -138,7 +115,6 @@ function fillModal(param) {
 }
 
 function offModal(e) {
-  // console.log(e.currentTarget.childNodes);
     modalWrapper.classList.remove("show");
 }
 
@@ -154,7 +130,6 @@ const circle = document.querySelector('.circle-wrapper .circle');
 const circle_arrow = document.querySelector('.circle-wrapper .circle-arrow');
 navLi.forEach((item,index)=> {
   item.addEventListener('click', ()=> {
-    // console.log(item.className);
     if(item.className.indexOf('main') > -1 ) {
       gsap.to(window, {duration : .6, scrollTo : {y : landingPage.offsetTop}})
     } else if ( item.className.indexOf("experience") > -1 ){
@@ -199,16 +174,6 @@ goUp.addEventListener("click", (e) => {
   window.scrollTo({ top: landingPage.offsetTop, behavior: "smooth" });
 });
 
-
-project.forEach((item)=>{
-  item.addEventListener("click", (e)=> {
-    fillModal(item.className);  //모달 내용 채우기
-    modalWrapper.classList.add('show');
-  })
-});
-
-// modalWrapper.addEventListener("click", (e) => {offModal(e);});
-
 closebtn.addEventListener('click',e=>{offModal(e)});
 
 linkTo.addEventListener("click", (e) => {
@@ -234,7 +199,7 @@ window.addEventListener("scroll", (e) => {
     goUp.classList.remove("show");
   }
   skillbarHandle(position);
-  projectHandle(position);
+  // projectHandle(position);
   contactHandle(position);
 });
 
