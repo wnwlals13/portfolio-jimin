@@ -59,13 +59,6 @@ projectsContainer.addEventListener('click', (e)=> {
   modalWrapper.classList.add('show');
 })
 
-// project.forEach((item)=>{
-//   item.addEventListener("click", (e)=> {
-//     fillModal(item.className);  //모달 내용 채우기
-//     modalWrapper.classList.add('show');
-//   })
-// });
-
 function skillbarHandle(data) {
   let i = 0;
   if (data >= 30 && data <= 65) {
@@ -76,13 +69,6 @@ function skillbarHandle(data) {
     });
   }
 }
-// function projectHandle(data) {
-//   if (data >= 63 && data <= 80) {
-//     project.forEach((item) => {
-//       item.style.width = `400px`;
-//     });
-//   }
-// }
 
 function contactHandle(data) {
   if (data >= 88) {
@@ -199,7 +185,6 @@ window.addEventListener("scroll", (e) => {
     goUp.classList.remove("show");
   }
   skillbarHandle(position);
-  // projectHandle(position);
   contactHandle(position);
 });
 
