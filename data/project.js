@@ -4,7 +4,7 @@ export const projects = [
         title : '캐치테이블 클론코딩',
         contents : ` 프로젝트 기간 : 2024년 03월 02일 ~ 2024년 05월 31일
         기술 스택 : React, Recoil, tailwindCSS, axios, React-Query
-        프로젝트 인원 : 프론트 개발 2명, 백엔드 개발 2명 ()
+        프로젝트 인원 : 프론트 개발 2명, 백엔드 개발 2명
         프론트 기여도 : 50%
 
         [ 구현 기능 ]
@@ -23,7 +23,7 @@ export const projects = [
         id : 'blog',
         title : '블로그 프로젝트',
         contents : `프로젝트 기간 : 2021년 02월 20일 ~ 2021년 05월
-        업데이트 : 2024년 05월 24일 ~ 31일ㄴ
+        업데이트 : 2024년 05월 24일 ~ 31일
         기술 스택 : JavaScript, React hooks, firebase
         참여자 : 주지민
         기여도 : 100%
