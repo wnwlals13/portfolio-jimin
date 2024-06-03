@@ -42,13 +42,13 @@ experience.map((item)=>{
 projects.map((item)=> {
   let divTag = document.createElement('div');
   let imgTag = document.createElement('div');
-  let spanTag = document.createElement('span');
+  let pTag = document.createElement('p');
 
   divTag.setAttribute('class', `project ${item.id}`);
   imgTag.setAttribute('class', `img ${item.id}`)
   divTag.appendChild(imgTag);
-  spanTag.innerHTML = item.title;
-  divTag.appendChild(spanTag);
+  pTag.innerHTML = item.title;
+  divTag.appendChild(pTag);
 
   projectsContainer.appendChild(divTag);
 })
