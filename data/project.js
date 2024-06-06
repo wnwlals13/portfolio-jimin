@@ -34,7 +34,7 @@ export const projects = [
         - cloud database를 이용해 DB 연동
         - 게시글 작성 시 이벤트 핸들러 감시 후 작성내용 미리보기 화면 구현 
         - 예전 문법 걷어내고 최신 firebase 문법으로 업데이트 (2024)`,
-        linkr : 'https://github.com/wnwlals13/myBlogApp',
+        linkr : 'https://github.com/wnwlals13/jjblog',
         img : './image/blog_main.png'
     }, {
         id : 'portfolio',
