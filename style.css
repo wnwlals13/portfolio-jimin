@@ -3,33 +3,36 @@
 @import url("https://fonts.googleapis.com/css2?family=Chango&family=Noto+Sans&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chango&family=Montserrat:ital,wght@0,200;0,300;0,800;0,900;1,200&family=Noto+Sans&family=Raleway:wght@800&display=swap");
 @font-face {
-  font-family: 'Pretendard-Regular';
-  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
-  font-family: 'WavvePADO-Regular';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2404@1.0/WavvePADO-Regular.woff2') format('woff2');
+  font-family: "WavvePADO-Regular";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2404@1.0/WavvePADO-Regular.woff2")
+    format("woff2");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'SUITE-Regular';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+  font-family: "SUITE-Regular";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2")
+    format("woff2");
   font-weight: 400;
   font-style: normal;
 }
 
 /* -------------------------- media -------------------------- */
-@media (max-width : 767px) {
+@media (max-width: 767px) {
   .timeline {
     margin: 0 20px 0 100px;
   }
   .event {
     &:before {
-      left : -140px;
-      width : 100px;
+      left: -140px;
+      width: 100px;
     }
   }
   .workPage .projects {
@@ -39,104 +42,108 @@
 
 /* 다크모드 구현을 위한 컬러변수 지정 */
 :root {
-  --mainColor : rgba(24, 154, 180, 1);
-  --pointColor : rgba(116, 231, 218, 1);
-  --subColor : rgba(212, 242, 244, 1);
-  --subColor-opacity : rgba(212, 242, 244, 0.2);
-  --white-opacity : rgba(255, 255, 255, 0.3);
-  --boldColor : rgba(4, 68, 95, 1);
-  --blackColor : rgba(0, 0, 0, 1);
-  --background : #fff;
-  --boxColor : #000;
-  --arrow : url('./image/arrow-down.png');
+  --mainColor: rgba(24, 154, 180, 1);
+  --pointColor: rgba(116, 231, 218, 1);
+  --subColor: rgba(212, 242, 244, 1);
+  --subColor-opacity: rgba(212, 242, 244, 0.2);
+  --white-opacity: rgba(255, 255, 255, 0.3);
+  --boldColor: rgba(4, 68, 95, 1);
+  --blackColor: rgba(0, 0, 0, 1);
+  --background: #fff;
+  --boxColor: #000;
+  --arrow: url("./image/arrow-down.png");
 }
-:root[color-theme='light'] {
-  --background : #fff;
-  --boxColor : #000;
-  --textColor-main :  rgba(0, 0, 0, 0.7);
+:root[color-theme="light"] {
+  --background: #fff;
+  --boxColor: #000;
+  --textColor-main: rgba(0, 0, 0, 0.7);
 }
-:root[color-theme='dark'] {
-  --background : #000;
-  --boxColor : #fff;
-  --textColor-main :  rgba(255, 255, 255, 0.7);
-  --arrow : url('./image/arrow-down-w.png');
+:root[color-theme="dark"] {
+  --background: #000;
+  --boxColor: #fff;
+  --textColor-main: rgba(255, 255, 255, 0.7);
+  --arrow: url("./image/arrow-down-w.png");
 }
 
 /* -------------------------- Common -------------------------- */
 * {
   box-sizing: border-box;
   margin: 0;
-  font-family: 'SUITE-Regular';
-  color : var(--boxColor);
+  font-family: "SUITE-Regular";
+  color: var(--boxColor);
 }
 body,
 html {
   margin: 0;
   padding: 0;
   overflow-x: overlay;
-  min-width : 375px;
-  cursor : none;
-  background : var(--background);
+  min-width: 375px;
+  cursor: none;
+  background: var(--background);
 }
 h2 {
   font-family: "Raleway", sans-serif;
 }
 
 .main {
-  display : flex;
-  flex-direction : column;
+  display: flex;
+  flex-direction: column;
 }
 
-.landingPage, .skillPage, .experiencePage, .workPage, .myselfPage  {
+.landingPage,
+.skillPage,
+.experiencePage,
+.workPage,
+.myselfPage {
   /* width: 75vw; */
   height: 100vh;
-  margin : 0 auto;
-  display : flex;
-  flex-direction : column;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
   /* gap : 40px; */
 }
 
-.myselfPage .wrapper{
-  width : 75vw;
-  height : 100%;
-  display : flex;
+.myselfPage .wrapper {
+  width: 75vw;
+  height: 100%;
+  display: flex;
   justify-content: space-between;
-  align-items : center;
-  flex : 1;
-  padding : 0 auto;
+  align-items: center;
+  flex: 1;
+  padding: 0 auto;
 }
 
 .experiencePage .wrapper,
 .skillPage .wrapper,
 .workPage .wrapper {
-  margin : 0 auto;
-  width : 75vw;
-  height : 100%;
-  display : flex;
-  flex-direction : column;
-  justify-content : center;
-  align-items : flex-start;
-  flex : 1;
-  padding : 0 auto;
-  gap : 50px;
+  margin: 0 auto;
+  width: 75vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex: 1;
+  padding: 0 auto;
+  gap: 50px;
 }
 
 /* -------------------------- Nav Section -------------------------- */
 .mainLogo {
-  background-image: url("./image/Flower.svg");
+  background-image: url("./image/로고_투명.png");
   background-size: cover;
-  width : 50px;
-  height : 50px;
+  width: 50px;
+  height: 50px;
   background-position: center center;
-  background-size: 50% 50%;
-  background-repeat : no-repeat;
-  background-color : transparent;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-color: transparent;
 }
 .context {
   list-style-type: none;
   display: flex;
   justify-content: flex-end;
-  padding : 0;
+  padding: 0;
 }
 .navbar {
   position: fixed;
@@ -146,57 +153,58 @@ h2 {
   z-index: 10;
   padding: 0 20px;
   align-items: center;
-  background-color: rgba( 255, 255, 255, 0.5 );
+  background-color: rgba(255, 255, 255, 0.5);
 }
 .__flex {
-  display : flex;
-  align-items : center;
+  display: flex;
+  align-items: center;
 }
-.navbar .context, .navbar li {
-  background-color : transparent;
+.navbar .context,
+.navbar li {
+  background-color: transparent;
 }
 .navbar li {
   padding: 0 10px;
 }
 .nav_right {
-  gap : 10px;
+  gap: 10px;
 }
 .toggle-theme {
-  gap : 5px;
+  gap: 5px;
 }
 
 .navbar li span.active {
-  color : var(--pointColor);
-  transition : color 220ms ease-in;
+  color: var(--pointColor);
+  transition: color 220ms ease-in;
 }
 
 /* 다크모드 토글버튼 UI만들기 */
 .check {
-  appearance : none;
-  position : relative;
-  border : max(1px, 0.1em) solid gray;
-  border-radius : 1.25em;
-  width : 2.25em;
-  height : 1.25em;
+  appearance: none;
+  position: relative;
+  border: max(1px, 0.1em) solid gray;
+  border-radius: 1.25em;
+  width: 2.25em;
+  height: 1.25em;
 }
 .check::before {
-  content : "";
-  position : absolute;
-  width : 1em;
-  height : 1em;
-  left : 0;
-  border-radius : 50%;
-  background-color : gray;
+  content: "";
+  position: absolute;
+  width: 1em;
+  height: 1em;
+  left: 0;
+  border-radius: 50%;
+  background-color: gray;
   transition: left 160ms linear;
   transform: scale(0.8);
 }
 .check:checked {
-  background : #6CEA9F;
-  border-color : #6CEA9F;
+  background: #6cea9f;
+  border-color: #6cea9f;
 }
 .check:checked::before {
-  background-color : #fff;
-  left : 1em;
+  background-color: #fff;
+  left: 1em;
 }
 
 /* -------------------------- Scroll Section -------------------------- */
@@ -250,23 +258,25 @@ h2 {
 /* -------------------------- Main Section -------------------------- */
 //typing animation
 .container {
-  position : absolute;
+  position: absolute;
   /* width: 100%; */
-  text-align : center;
+  text-align: center;
 }
 .container .blinking_txt {
-  overflow : hidden;
-  display : inline-block;
-  padding : 0;
+  overflow: hidden;
+  display: inline-block;
+  padding: 0;
 }
 .container .cursor {
-  position : absolute;
-  transform : translate(-50% -50%);
-  font-size : 1.4rem;
-  fonr-weight : 700;
+  position: absolute;
+  transform: translate(-50% -50%);
+  font-size: 1.4rem;
+  fonr-weight: 700;
 }
 @keyframes blink-effect {
-  50% {opacity : 0;}
+  50% {
+    opacity: 0;
+  }
 }
 .blink_animate {
   animation: blink-effect 1s step-end infinite;
@@ -276,26 +286,26 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  width : 100%;
+  width: 100%;
 }
 .landing__about .container {
   letter-spacing: 3px;
   z-index: 9;
-  position : absolute;
-  left : 5%;
-  bottom : 15%;
+  position: absolute;
+  left: 5%;
+  bottom: 15%;
   /* width : 100%; */
 }
 .landing__about .blinking_txt {
   font-family: "WavvePADO-Regular", sans-serif;
-  display : inline-block;
+  display: inline-block;
 }
 @keyframes upDown {
   0% {
-    transform: translate(0,0);
+    transform: translate(0, 0);
   }
   100% {
-    transform: translate(0,20px);
+    transform: translate(0, 20px);
   }
 }
 @keyframes shake {
@@ -311,56 +321,55 @@ h2 {
 }
 
 .landingPage .mainTxt span {
-  font-size : 7rem;
-  font-weight : bold;
-  color : var(--background);
-  text-shadow: -1px 0 var(--boxColor), 0 1px var(--boxColor), 1px 0 var(--boxColor), 0 -1px var(--boxColor);
+  font-size: 7rem;
+  font-weight: bold;
+  color: var(--background);
+  text-shadow: -1px 0 var(--boxColor), 0 1px var(--boxColor),
+    1px 0 var(--boxColor), 0 -1px var(--boxColor);
   font-family: "WavvePADO-Regular", sans-serif;
-  transition : color 300ms ease-in-out;
+  transition: color 300ms ease-in-out;
 }
 
 .landingPage .mainTxt.active span {
-  color : var(--pointColor);
-  transition : color 300ms ease-in-out;
+  color: var(--pointColor);
+  transition: color 300ms ease-in-out;
 }
 
 .landingPage .arrow-b {
-  position : absolute;
-  z-index : 9;
-  bottom : 5%;
+  position: absolute;
+  z-index: 9;
+  bottom: 5%;
 }
 
 .landingPage .arrow-b .icon {
-  width : 40px;
-  height : 40px;
-  background-image : var(--arrow);
-  background-size : cover;
-  animation : down 1.5s infinite;
+  width: 40px;
+  height: 40px;
+  background-image: var(--arrow);
+  background-size: cover;
+  animation: down 1.5s infinite;
 }
 
 .landingPage .arrow-b .icon {
-
 }
 
 @keyframes down {
   0% {
-    -webkit-transform : rotate(0) translate(0,-20px);
+    -webkit-transform: rotate(0) translate(0, -20px);
   }
   50% {
-    opacity : 1;
+    opacity: 1;
   }
   100% {
-    -webkit-transform : rotate(0) translate(0,0);
-    opacity : 0;
+    -webkit-transform: rotate(0) translate(0, 0);
+    opacity: 0;
   }
 }
-
 
 /* ---about me-- */
 .myselfPage .wrapper .img {
   position: relative;
-  right : -45%;
-  transform : rotate(10deg);
+  right: -45%;
+  transform: rotate(10deg);
 }
 
 .myselfPage .wrapper .img_card {
@@ -368,16 +377,16 @@ h2 {
   height: 60vmin;
   position: relative;
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, .231372549);
-  transition: transform .2s ease-in-out;
-  overflow : hidden;
+  border: 1px solid rgba(255, 255, 255, 0.231372549);
+  transition: transform 0.2s ease-in-out;
+  overflow: hidden;
 }
 .myselfPage .wrapper .img_card .profile {
-  width : 100%;
-  height : 100%;
-  background : url("./image/profile.jpg") 50% 50% no-repeat;
-  background-size : cover;
-  filter : grayScale(1);
+  width: 100%;
+  height: 100%;
+  background: url("./image/profile.jpg") 50% 50% no-repeat;
+  background-size: cover;
+  filter: grayScale(1);
 }
 
 .ir {
@@ -389,76 +398,76 @@ h2 {
 }
 
 .myselfPage .wrapper .desc h2 {
-
 }
 
 /* -------------------------- Experience Section -------------------------- */
 
 .timeline {
-  position : relative;
-  border-sizing : border-box;
+  position: relative;
+  border-sizing: border-box;
   margin: 0 50px 0 180px;
   /* height: 100%; */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items : center;
+  align-items: center;
   border-left: 5px solid var(--pointColor);
 }
 .timeline li h2 {
-  font-weight : 600;
-  color : var(--boxColor);
+  font-weight: 600;
+  color: var(--boxColor);
 }
 .event {
   position: relative;
   list-style-type: none;
-  width : 100%;
-  display : flex;
-  flex-direction : column;
-  justify-content : center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
-  &:last-of-type { 
-      padding-bottom: 0;
-      margin-bottom: 0; 
-      border: none;      
-    }
+  &:last-of-type {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border: none;
+  }
 
-  &:before, &:after {
-      position: absolute;
-      display: block;
-      top: 0;
-    }
-  
+  &:before,
+  &:after {
+    position: absolute;
+    display: block;
+    top: 0;
+  }
+
   &:before {
-    left : -200px;
+    left: -200px;
     content: attr(data-date);
-    color : var(--boxColor);
+    color: var(--boxColor);
   }
 
   &:after {
-      box-shadow: 0 0 0 4px var(--pointColor); 
-      background: #fff;  
-      left : -47px;
-      border-radius: 50%;  
-      height: 11px;
-      width: 11px;
-      content: "";
-      top: 5px;
-    }
+    box-shadow: 0 0 0 4px var(--pointColor);
+    background: #fff;
+    left: -47px;
+    border-radius: 50%;
+    height: 11px;
+    width: 11px;
+    content: "";
+    top: 5px;
+  }
 }
 .event h2 {
   padding-bottom: 10px;
   font-size: 20px;
-  white-space : nowrap;
-  overflow : hidden;
-  text-overflow : ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .event p {
   margin-bottom: 40px;
   color: var(--textColor-main);
-  white-space : nowrap;
-  overflow : hidden;
-  text-overflow : ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* -------------------------- Skill Section -------------------------- */
@@ -466,23 +475,23 @@ h2 {
   display: flex;
   justify-content: stretch;
   /* flex : 1; */
-  width : 100%;
+  width: 100%;
 }
 
 .skillWrapper .skill {
-  flex : 1;
+  flex: 1;
   list-style-type: none;
   padding: 0;
-  display : flex;
-  flex-direction : column;
-  gap : 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 .skillWrapper .skill li {
-  display : flex;
-  gap : 10px;
+  display: flex;
+  gap: 10px;
 }
 .skillWrapper .skill li .skill__name {
-  width : 100px;
+  width: 100px;
 }
 .skillWrapper .skill li .skill__back {
   width: 100%;
@@ -504,31 +513,31 @@ h2 {
     rgba(18, 216, 250, 1) 100%
   );
   transition: all 1s ease-in-out;
-  line-height : 150%;
+  line-height: 150%;
 }
 
 /* -------------------------- Projects Section -------------------------- */
 
 .workPage .projects {
   display: grid;
-  grid-template-columns : repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   justify-items: center;
-  align-items : center;
-  gap : 20px;
-  box-sizing : border-box;
-  width : 100%;
+  align-items: center;
+  gap: 20px;
+  box-sizing: border-box;
+  width: 100%;
 }
 .workPage .projects .project {
-  width : 100% !important;
-  display : flex;
-  flex-direction : column;
-  box-sizing : border-box;
-  transition-duration: .5s;
+  width: 100% !important;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  transition-duration: 0.5s;
   background: #fff;
   box-shadow: -2px 19px 44px 0px rgba(0, 0, 0, 0.06);
   border-radius: 15px;
-  position : relative;
-  overflow : hidden;
+  position: relative;
+  overflow: hidden;
 
   &:hover {
     transform: translateY(-6px);
@@ -541,54 +550,53 @@ h2 {
   }
 }
 .workPage .projects .project .img {
-  width : 100%;
-  height : 150px;
+  width: 100%;
+  height: 150px;
   background-size: 100%;
-  background-repeat : no-repeat;
-  border-bottom : 1px solid #e5e5e5;
-  padding : 20px;
-  box-sizing : border-box;
+  background-repeat: no-repeat;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 20px;
+  box-sizing: border-box;
 }
 .project p,
 .project span {
-  color : var(--blackColor);
-  padding : 20px;
+  color: var(--blackColor);
+  padding: 20px;
 }
 .workPage .projects .project .img.ddoda {
-  background : url("./image/ddoda_main.png") 100% 50% no-repeat;
-  background-size : 100%;
+  background: url("./image/ddoda_main.png") 100% 50% no-repeat;
+  background-size: 100%;
 }
 .workPage .projects .project .img.portfolio {
-  background : url("./image/portfolio.png") 100% 50% no-repeat;
-  background-size : 100%;
+  background: url("./image/portfolio.png") 100% 50% no-repeat;
+  background-size: 100%;
 }
 .workPage .projects .project .img.blog {
-  background : url("./image/blog_main.png") 100% 50% no-repeat;
-  background-size : 100%;
+  background: url("./image/blog_main.png") 100% 50% no-repeat;
+  background-size: 100%;
 }
 .workPage .projects .project .img.catch {
-  background : url("./image/catch_main.png") 100% 50% no-repeat;
-  background-size : 50%;
-  background-position : center;
+  background: url("./image/catch_main.png") 100% 50% no-repeat;
+  background-size: 50%;
+  background-position: center;
 }
 
 /* -------------------------- Contact Section -------------------------- */
 .contactPage {
   display: flex;
   justify-content: center;
-  align-items : center;
-  margin : 0;
-  padding :0;
+  align-items: center;
+  margin: 0;
+  padding: 0;
   height: 100vh;
-  width : 100%;
-  background-color : var(--boxColor);
-  color : var(--background);
+  width: 100%;
+  background-color: var(--boxColor);
+  color: var(--background);
 }
 .contentwrapper {
-
 }
 .content {
-  display : grid;
+  display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 1.5rem;
   grid-row-gap: 14.5rem;
@@ -599,14 +607,14 @@ h2 {
 }
 
 .contentwrapper p {
-  grid-column : span 12;
+  grid-column: span 12;
 }
 
 .contentwrapper p,
 .contentwrapper .circle-wrapper .poinnterTxt {
-  color : var(--background);
+  color: var(--background);
   font-family: "WavvePADO-Regular", sans-serif;
-  font-size : 3rem;
+  font-size: 3rem;
 }
 
 .contentwrapper h2 {
@@ -615,8 +623,8 @@ h2 {
 
 .contentwrapper pre {
   line-height: 30px;
-  text-wrap : wrap;
-  text-overflow : ellipsis;
+  text-wrap: wrap;
+  text-overflow: ellipsis;
 }
 .contentwrapper h4 {
   padding-top: 30px;
@@ -627,7 +635,7 @@ h2 {
 }
 
 .contactPage .contact-icon li i.white {
-  color : var(--background);
+  color: var(--background);
 }
 .contactPage .circle-wrapper {
   display: inline;
@@ -640,19 +648,19 @@ h2 {
   /* left: -280%; */
   color: #ffe818;
   pointer-events: none;
-  position : absolute;
+  position: absolute;
 }
 
 .contactPage .circle.active svg {
   stroke-dasharray: 511px;
   stroke-dashoffset: 0;
-  animation : dash 1.2s ease-in-out;
+  animation: dash 1.2s ease-in-out;
 }
 
-.contactPage .circle-arrow.active svg{
+.contactPage .circle-arrow.active svg {
   stroke-dasharray: 511px;
   stroke-dashoffset: 0;
-  animation : dash 1.2s ease-in-out;
+  animation: dash 1.2s ease-in-out;
 }
 
 .contactPage .circle-arrow {
@@ -667,13 +675,12 @@ h2 {
 
 @keyframes dash {
   0% {
-    stroke-dashoffset : 511px;
+    stroke-dashoffset: 511px;
   }
   100% {
-    stroke-dashoffset : 0;
+    stroke-dashoffset: 0;
   }
 }
-
 
 .goUp {
   /* cursor: pointer; */
@@ -693,20 +700,20 @@ h2 {
   transform: scale(1.1);
 }
 
-.contact-profile{
+.contact-profile {
   background-image: url("./image/profile.jpg");
   background-size: 100%;
   background-repeat: no-repeat;
   width: 90px;
   height: 90px;
   border-radius: 50%;
-  min-width : 90px;
+  min-width: 90px;
 }
 
 .contact-icon {
   padding-left: 5px;
   display: flex;
-  gap : 15px;
+  gap: 15px;
   flex-direction: row;
   justify-content: flex-start;
   list-style-type: none;
@@ -720,27 +727,27 @@ h2 {
   width: 100%;
   height: 100%;
 }
-.contact-icon li a:link  {
+.contact-icon li a:link {
   color: #000;
 }
 
 /* -------------------------- Modal Section -------------------------- */
 .modalWrapper {
   position: fixed;
-  top:0;
+  top: 0;
   left: 0;
   width: 100%;
-  height : 100%;
+  height: 100%;
   overflow: hidden;
-  background: rgba(0,0,0,0.5);
-  z-index : 99;
-  display : none;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+  display: none;
 }
 
 .swiper-container {
-  width : 100%;
-  height : 300px;
-  overflow : hidden;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
 }
 .modalInner {
   position: absolute;
@@ -750,16 +757,16 @@ h2 {
   padding: 20px;
   background: #ffffff;
   border-radius: 20px;
-  width : 55vw;
+  width: 55vw;
 }
 
 .modal_desc {
   letter-spacing: 2px;
-  display : inline-block;
+  display: inline-block;
 }
 
 .modalWrapper.show {
-  display : block;
+  display: block;
 }
 
 .modal_detail {
@@ -799,74 +806,73 @@ h2 {
 .modalWrapper .btn button,
 .modal-content span,
 .modal-content h3,
-.modal-content i 
-{
-  color : var(--blackColor);
+.modal-content i {
+  color: var(--blackColor);
 }
 .modal-content h3 {
-  margin-bottom : 10px;
+  margin-bottom: 10px;
 }
 .modalWrapper .modalInner .swiper-slide {
-  display : flex;
-  justify-content : center;
-  border-bottom : 1px solid #d5d5d5;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid #d5d5d5;
 }
 .modalWrapper .modalInner .swiper-slide img {
   /* width : 100%; */
-  height : 100%;
-  object-fit : contain;
-  padding : 10px 0;
+  height: 100%;
+  object-fit: contain;
+  padding: 10px 0;
 }
 .modalWrapper .modalInner .btn {
-  display : flex;
-  justify-content : flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 .modal-content {
-  margin-top : 20px;
-  margin-bottom :10px;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 .modal-content p {
-  display : flex;
-  justify-content : space-between;
+  display: flex;
+  justify-content: space-between;
 }
 .modal-content p {
-  align-items : flex-end;
+  align-items: flex-end;
 }
 .modal-content p .git {
-  display : flex;
-  flex-direction :row;
-  gap :10px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }
 .modal-content p .git span {
-  font-size : 14px;
+  font-size: 14px;
 }
 a {
-  text-decoration-line : none;
-  color : var(--boxColor);
+  text-decoration-line: none;
+  color: var(--boxColor);
 }
 
 /* 마우스 커서 */
 .mouse_cursor {
-  position : absolute;
-  left : 0;
-  top : 0;
-  width : 70px;
-  height : 70px;
-  z-index : 9999;
-  border-radius : 50%;
-  border : 1px solid var(--mainColor);
-  background-color : var(--subColor-opacity);
-  transition : transform 0.3s, opacity 0.2s;
-  pointer-events : none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 70px;
+  height: 70px;
+  z-index: 9999;
+  border-radius: 50%;
+  border: 1px solid var(--mainColor);
+  background-color: var(--subColor-opacity);
+  transition: transform 0.3s, opacity 0.2s;
+  pointer-events: none;
 }
 .mouse_pointer {
-  position : absolute;
-  left : 0;
-  top : 0;
-  width : 10px;
-  height : 10px;
-  z-index : 9999;
-  border-radius : 50%;
-  background : var(--mainColor);
-  pointer-events : none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  z-index: 9999;
+  border-radius: 50%;
+  background: var(--mainColor);
+  pointer-events: none;
 }
