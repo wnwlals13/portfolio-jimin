@@ -430,7 +430,7 @@ h2 {
 .myself-info .myself-desc {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   gap: 10px;
 }
 .myself-info .myself-desc .sns {
@@ -451,7 +451,8 @@ h2 {
   padding-bottom: 2px;
 }
 .myselfWrapper {
-  min-width: 925px;
+  margin: 0 auto;
+  min-width: 1120px;
 }
 .myselfWrapper .skillWrapper {
   display: flex;
@@ -488,29 +489,12 @@ h2 {
   height: 100%;
 }
 .myselfPage .myselfWrapper .img {
-  width: 250px;
-  height: 250px;
+  width: 150px;
+  height: 150px;
   background: url("./image/profile.jpg") no-repeat;
   background-size: 100%;
   border-radius: 50%;
 }
-
-/* .myselfPage .wrapper .img_card {
-  width: 40vmin;
-  height: 60vmin;
-  position: relative;
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.231372549);
-  transition: transform 0.2s ease-in-out;
-  overflow: hidden;
-}
-.myselfPage .wrapper .img_card .profile {
-  width: 100%;
-  height: 100%;
-  background: url("./image/profile.jpg") 50% 50% no-repeat;
-  background-size: cover;
-  filter: grayScale(1);
-}  */
 
 .ir {
   display: block;
