@@ -23,6 +23,19 @@
   font-weight: 400;
   font-style: normal;
 }
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+ol,
+ul {
+  list-style: none;
+}
 
 /* -------------------------- media -------------------------- */
 @media (max-width: 767px) {
@@ -38,6 +51,44 @@
   .workPage .projects {
     grid-template-columns: repeat(1, 1fr) !important;
   }
+  .workPage {
+    height: 150vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .modalInner {
+    position: absolute;
+    background: var(--background);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 5px;
+    width: 90%;
+    min-width: 325px;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media (min-width: 767px) {
+  .workPage {
+    height: 100vh;
+  }
+  .modalInner {
+    position: absolute;
+    background: var(--background);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 5px;
+    width: 600px;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 /* 다크모드 구현을 위한 컬러변수 지정 */
@@ -49,16 +100,20 @@
   --white-opacity: rgba(255, 255, 255, 0.3);
   --boldColor: rgba(4, 68, 95, 1);
   --blackColor: rgba(0, 0, 0, 1);
+  --yellowColor: rgb(255, 220, 127);
   --background: #fff;
   --boxColor: #000;
   --arrow: url("./image/arrow-down.png");
+  --textBorderColor: #000;
 }
 :root[color-theme="light"] {
+  --textBorderColor: #000;
   --background: #fff;
   --boxColor: #000;
   --textColor-main: rgba(0, 0, 0, 0.7);
 }
 :root[color-theme="dark"] {
+  --textBorderColor: #000;
   --background: #000;
   --boxColor: #fff;
   --textColor-main: rgba(255, 255, 255, 0.7);
@@ -93,31 +148,21 @@ h2 {
 .landingPage,
 .skillPage,
 .experiencePage,
-.workPage,
 .myselfPage {
-  /* width: 75vw; */
+  /* min-width: 925px; */
   height: 100vh;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  /* gap : 40px; */
 }
 
-.myselfPage .wrapper {
-  width: 75vw;
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex: 1;
-  padding: 0 auto;
-}
-
+.myselfPage .wrapper,
 .experiencePage .wrapper,
 .skillPage .wrapper,
 .workPage .wrapper {
   margin: 0 auto;
   width: 75vw;
+  /* min-width: 925px; */
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -226,7 +271,7 @@ h2 {
 }
 
 .scrollbar {
-  background: var(--mainColor);
+  background: var(--pointColor);
 }
 .scroll {
   color: rgb(142, 142, 142);
@@ -242,13 +287,25 @@ h2 {
 
 .goUp {
   position: fixed;
-  background: transparent;
-  color: rgba(0, 0, 0, 0.4);
-  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  aling-items: center;
+  background: var(--pointColor);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
   bottom: 30px;
   right: 40px;
   opacity: 0;
   transition: all 0.5s ease-in-out;
+  z-index: 10;
+}
+
+.goUp i {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  aling-items: center;
 }
 
 .goUp.show {
@@ -259,7 +316,6 @@ h2 {
 //typing animation
 .container {
   position: absolute;
-  /* width: 100%; */
   text-align: center;
 }
 .container .blinking_txt {
@@ -294,7 +350,8 @@ h2 {
   position: absolute;
   left: 5%;
   bottom: 15%;
-  /* width : 100%; */
+  width: 100%;
+  min-width: 1125px;
 }
 .landing__about .blinking_txt {
   font-family: "WavvePADO-Regular", sans-serif;
@@ -323,15 +380,15 @@ h2 {
 .landingPage .mainTxt span {
   font-size: 7rem;
   font-weight: bold;
-  color: var(--background);
-  text-shadow: -1px 0 var(--boxColor), 0 1px var(--boxColor),
-    1px 0 var(--boxColor), 0 -1px var(--boxColor);
+  color: var(--pointColor);
+  text-shadow: -1px 0 var(--textBorderColor), 0 1px var(--textBorderColor),
+    1px 0 var(--textBorderColor), 0 -1px var(--textBorderColor);
   font-family: "WavvePADO-Regular", sans-serif;
   transition: color 300ms ease-in-out;
 }
 
 .landingPage .mainTxt.active span {
-  color: var(--pointColor);
+  color: var(--yellowColor);
   transition: color 300ms ease-in-out;
 }
 
@@ -366,13 +423,79 @@ h2 {
 }
 
 /* ---about me-- */
-.myselfPage .wrapper .img {
-  position: relative;
-  right: -45%;
-  transform: rotate(10deg);
+.myself-info {
+  display: flex;
+  gap: 20px;
+}
+.myself-info .myself-desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+.myself-info .myself-desc .sns {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.myself-info .myself-desc .sns li {
+  border: 1px solid var(--pointColor);
+  border-radius: 5px;
+}
+.myself-info .myself-desc .sns li a {
+  color: var(--pointColor);
+  font-weight: bold;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+.myselfWrapper {
+  min-width: 925px;
+}
+.myselfWrapper .skillWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.myselfWrapper .skillWrapper > div > h3 {
+  margin-bottom: 10px;
+}
+.myselfWrapper .skills {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.myselfWrapper .skills li {
+  display: flex;
+  justify-contents: center;
+  align-items: center;
+  gap: 5px;
+  max-width: 220px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+.myselfWrapper .skills li span {
+  font-size: 16px;
+  font-weight: bold;
+}
+.myselfWrapper .skills li .logo_img {
+  width: 20px;
+  height: 100%;
+}
+.myselfPage .myselfWrapper .img {
+  width: 250px;
+  height: 250px;
+  background: url("./image/profile.jpg") no-repeat;
+  background-size: 100%;
+  border-radius: 50%;
 }
 
-.myselfPage .wrapper .img_card {
+/* .myselfPage .wrapper .img_card {
   width: 40vmin;
   height: 60vmin;
   position: relative;
@@ -387,7 +510,7 @@ h2 {
   background: url("./image/profile.jpg") 50% 50% no-repeat;
   background-size: cover;
   filter: grayScale(1);
-}
+}  */
 
 .ir {
   display: block;
@@ -421,6 +544,7 @@ h2 {
   position: relative;
   list-style-type: none;
   width: 100%;
+  margin-left: 80px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -533,7 +657,8 @@ h2 {
   flex-direction: column;
   box-sizing: border-box;
   transition-duration: 0.5s;
-  background: #fff;
+  background: var(--background);
+  border: 1px solid var(--boxColor);
   box-shadow: -2px 19px 44px 0px rgba(0, 0, 0, 0.06);
   border-radius: 15px;
   position: relative;
@@ -554,31 +679,31 @@ h2 {
   height: 150px;
   background-size: 100%;
   background-repeat: no-repeat;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid var(--boxColor);
   padding: 20px;
   box-sizing: border-box;
 }
 .project p,
 .project span {
-  color: var(--blackColor);
+  color: var(--boxColor);
   padding: 20px;
 }
 .workPage .projects .project .img.ddoda {
-  background: url("./image/ddoda_main.png") 100% 50% no-repeat;
+  background: url("./image/ddoda_main.png") 100% 100% no-repeat;
   background-size: 100%;
 }
 .workPage .projects .project .img.portfolio {
-  background: url("./image/portfolio.png") 100% 50% no-repeat;
+  background: url("./image/portfolio.png") 100% 100% no-repeat;
   background-size: 100%;
 }
 .workPage .projects .project .img.blog {
-  background: url("./image/blog_main.png") 100% 50% no-repeat;
+  background: url("./image/blog_main.png") 100% 100% no-repeat;
   background-size: 100%;
 }
 .workPage .projects .project .img.catch {
-  background: url("./image/catch_main.png") 100% 50% no-repeat;
-  background-size: 50%;
-  background-position: center;
+  background: url("./image/catch_main.png") 100% 100% no-repeat;
+  background-position: 0% 0%;
+  background-size: 100%;
 }
 
 /* -------------------------- Contact Section -------------------------- */
@@ -749,16 +874,19 @@ h2 {
   height: 300px;
   overflow: hidden;
 }
-.modalInner {
+/* .modalInner {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 20px;
+  border-radius: 5px;
   background: #ffffff;
-  border-radius: 20px;
-  width: 55vw;
-}
+  width: 600px;
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+} */
 
 .modal_desc {
   letter-spacing: 2px;
@@ -770,9 +898,9 @@ h2 {
 }
 
 .modal_detail {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  /* display: flex; */
+  /* justify-content: flex-end;
+  align-items: center; */
 }
 .modal_detail .fab.fa-github {
   font-size: 30px;
@@ -803,11 +931,11 @@ h2 {
   );
   border-radius: 10px;
 }
-.modalWrapper .btn button,
+
 .modal-content span,
 .modal-content h3,
 .modal-content i {
-  color: var(--blackColor);
+  color: var(--boxColor);
 }
 .modal-content h3 {
   margin-bottom: 10px;
@@ -816,27 +944,30 @@ h2 {
   display: flex;
   justify-content: center;
   border-bottom: 1px solid #d5d5d5;
+  background: rgba(255, 255, 255, 0.2);
 }
 .modalWrapper .modalInner .swiper-slide img {
-  /* width : 100%; */
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   padding: 10px 0;
 }
 .modalWrapper .modalInner .btn {
   display: flex;
   justify-content: flex-end;
 }
+.modalWrapper .modalInner .btn button {
+  color: var(--boxColor);
+}
 .modal-content {
   margin-top: 20px;
   margin-bottom: 10px;
+  padding-bottom: 20px;
+  overflow: scroll;
 }
 .modal-content p {
   display: flex;
-  justify-content: space-between;
-}
-.modal-content p {
-  align-items: flex-end;
+  flex-direction: column;
+  gap: 20px;
 }
 .modal-content p .git {
   display: flex;
@@ -845,6 +976,7 @@ h2 {
 }
 .modal-content p .git span {
   font-size: 14px;
+  text-decoration: underline;
 }
 a {
   text-decoration-line: none;

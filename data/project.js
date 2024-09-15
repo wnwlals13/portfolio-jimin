@@ -1,8 +1,8 @@
 export const projects = [
-    {
-        id : 'catch',
-        title : '식당예약 어플 클론코딩 프로젝트',
-        contents : ` 설명 : 유저가 지역별로 식당을 조회,예약하여 이용할 수 있는 서비스
+  {
+    id: "catch",
+    title: "식당예약 어플 프로젝트 (클론코딩)",
+    contents: `설명 : 유저가 지역별로 식당을 조회,예약하여 이용할 수 있는 서비스
         기간 : 2024.04.01 - 05.30 (약 2개월)
         기술 : React, Recoil, tailwindCSS, axios, React-Query
         기여도 : 50%
@@ -18,12 +18,13 @@ export const projects = [
         - 클라우드에 저장된 이미지 URL로 이미지 로드 시, CORS 에러 문제 발생,
                 서버에서 CrossOrigin 어노테이션에 주소 추가하여 해결
         - Swagger API, Postman을 활용하여 백엔드와 협업`,
-        linkr : 'https://github.com/sky-catch/Front',
-        img : './image/catch_main.png'
-    }, {
-        id : 'blog',
-        title : '블로그 프로젝트',
-        contents : `기간 : 2021.04 - 2021.05 (약 2개월)
+    linkr: "https://github.com/sky-catch/Front",
+    img: "./image/catch_main.png",
+  },
+  {
+    id: "blog",
+    title: "블로그 프로젝트",
+    contents: `기간 : 2021.04 - 2021.05 (약 2개월)
         업데이트 : 2024.05.24 ~ 2024.05.31
         기술 : React, firebase(auth, cloud database), netflify
         기여도 : 100%
@@ -33,12 +34,13 @@ export const projects = [
         - firebase cloud database를 이용해 백엔드 API 연결 후 게시글 DB 연동
         - 게시글 작성 시 이벤트 핸들러 감지하여 실시간 작성내용 미리보기 기능 구현
         - React hooks 사용해 블로그 게시글 CRUD 기능 구현`,
-        linkr : 'https://github.com/wnwlals13/jjblog',
-        img : './image/blog_main.png'
-    }, {
-        id : 'portfolio',
-        title : '개인 포트폴리오',
-        contents : `기간 : 2021.01 - 2021.02
+    linkr: "https://github.com/wnwlals13/jjblog",
+    img: "./image/blog_main.png",
+  },
+  {
+    id: "portfolio",
+    title: "개인 포트폴리오",
+    contents: `기간 : 2021.01 - 2021.02
         업데이트 : 2024.04.21 - 2024.04.25 (약 1주)
         기술 스택 : Javascript, html/css, GASP, netflify
         기여도 : 100%
@@ -49,12 +51,13 @@ export const projects = [
         - 마우스 포인터 좌표값을 활용해 포인트 이벤트 구현
         - 토글 UI로 다크모드 기능 구현
         - GSAP 라이브러리를 사용해 부드럽고 다이나믹한 애니메이션 이벤트 구현`,
-        linkr : 'https://github.com/wnwlals13/portfolio-jimin',
-        img : './image/portfolio.png'
-    }, {
-        id : 'ddoda',
-        title : '또다(건강관리 서비스)',
-        contents : `기간 : 2020.11.10 - 2020.12.29
+    linkr: "https://github.com/wnwlals13/portfolio-jimin",
+    img: "./image/portfolio.png",
+  },
+  {
+    id: "ddoda",
+    title: "또다(건강관리 서비스)",
+    contents: `기간 : 2020.11.10 - 2020.12.29
         기술 : Java, Spring framework, JavaScript, jQuery
         기여도 : 60%
 
@@ -63,7 +66,7 @@ export const projects = [
         - 캘린더 API를 활용한 다이어리 CRUD 기능
         - 카카오 지도 API 활용한 소모임 장소 정보 제공
         - AJAX를 이용한 게시판 댓글과 대댓글 기능 구현`,
-        linkr : 'https://github.com/JJINDdoda/JJIN_DDODA_FINAL',
-        img : './image/ddoda_main.png'
-    }
-]
+    linkr: "https://github.com/JJINDdoda/JJIN_DDODA_FINAL",
+    img: "./image/ddoda_main.png",
+  },
+];
